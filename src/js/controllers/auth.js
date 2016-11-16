@@ -1,6 +1,7 @@
 angular.module('moodApp')
   .controller('RegisterController', RegisterController)
   .controller('LoginController', LoginController);
+
 RegisterController.$inject = ['$auth', '$state'];
 function RegisterController($auth, $state) {
   const register = this;
@@ -20,7 +21,7 @@ function LoginController($auth, $state) {
   function submit() {
     $auth.login(login.credentials)
     .then(() => {
-      $state.go('moodIndex');
+      $state.go('userForm');
     });
   }
   function authenticate(provider) {

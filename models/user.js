@@ -1,11 +1,17 @@
 const mongoose  = require('mongoose');
 const bcrypt    = require('bcrypt');
-const InitialData = require('./initialUserData');
 
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
-  initialData: InitialData.schema,
+  gender: { type: String },
+  age: { type: String },
+  whatBringsYouHere: { type: String },
+  worries: { type: String },
+  happies: { type: String },
+  interests: { type: String },
+  favouriteAnimal: { type: String },
+  hopeToGain: { type: String },
   passwordHash: { type: String }
 });
 

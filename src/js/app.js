@@ -18,8 +18,12 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('moodIndex', {
       url: '/moodIndex',
-      templateUrl: '/templates/moodIndex.html',
-      controller: 'moodIndexController as moodIndex'
+      templateUrl: '/templates/moodIndex.html'
+    })
+    .state('userForm', {
+      url: '/userForm',
+      templateUrl: '/templates/userForm.html',
+      controller: 'UserFormController as userForm'
     });
 
   $urlRouterProvider.otherwise('/moodIndex');

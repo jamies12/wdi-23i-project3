@@ -1,0 +1,37 @@
+<h1>USER FORM</h1>
+
+<form novalidate ng-submit="userForm.submit()">
+  <div class="row">
+    <label>Gender</label>
+    <input class="u-full-width" type="text" placeholder="Gender" ng-model="userForm.user.gender">
+  </div>
+  <div class="row">
+    <label>Age</label>
+    <input class="u-full-width" type="number" placeholder="Age" ng-model="userForm.user.age">
+  </div>
+  <div class="row">
+    <label>What brings you here?</label>
+    <input class="u-full-width" type="string" placeholder="Write what brings you to our site..." ng-model="userForm.user.whatBringsYouHere">
+  </div
+  <div class="row">
+    <label>What are some of your worries?</label>
+    <input class="u-full-width" type="string" placeholder="Please let us know..." ng-model="userForm.user.worries">
+  </div>
+  <div class="row">
+    <label>What makes you happy?</label>
+    <input class="u-full-width" type="string" placeholder="Please let us know..." ng-model="userForm.user.happiness">
+  </div>
+  <div class="row">
+    <label>Please tell us your Interests or hobbies</label>
+    <input class="u-full-width" type="string" placeholder="Please let us know..." ng-model="userForm.user.interests">
+  </div>
+  <div class="row">
+    <label>What is your favourite animal?</label>
+    <input class="u-full-width" type="string" placeholder="Please let us know..." ng-model="userForm.user.favouriteAnimal">
+  </div>
+  <div class="row">
+    <label>What do you hope to gain from your experience here?</label>
+    <input class="u-full-width" type="string" placeholder="Please let us know..." ng-model="userForm.user.hopeToGain">
+  </div>
+  <button>Submit</button>
+</form>

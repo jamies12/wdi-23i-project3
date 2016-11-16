@@ -14,7 +14,7 @@ InitialData.create({
   Age: '23',
   WhatBringsYouHere: 'Mindfulness',
   Worries: 'Donald Trump',
-  Happies: 'Red Pandas',
+  Happiness: 'Red Pandas',
   Interests: 'Wood Carving',
   FavAnimal: 'Red Panda',
   HopeToGain: 'Enlightenment'
