@@ -14,7 +14,7 @@ const initialDataSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('InitialData', initialDataSchema);
 
-
+// Questions to ask on user's first login
 // Gender?
 // Age?
 // Favourite animal?
