@@ -25,8 +25,9 @@ InitialData.create({
   User.create({
     username: 'jim',
     email: 'jim@jam.com',
-    initialData: [initialData1],
-    passwordHash: 'jimJam'
+    initialData: initialData1,
+    password: 'jimJam',
+    passwordConfirmation: 'jimJam'
   }, (err, user1) => {
     if (err) return console.log(err);
     console.log('User 1 Added!', user1);
