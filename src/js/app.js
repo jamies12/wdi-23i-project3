@@ -18,12 +18,33 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('moodIndex', {
       url: '/moodIndex',
-      templateUrl: '/templates/moodIndex.html'
+      templateUrl: '/templates/moodIndex.html',
+      // controller: 'moodIndexController as moodIndex'
     })
     .state('userForm', {
       url: '/userForm',
       templateUrl: '/templates/userForm.html',
       controller: 'UserFormController as userForm'
+    })
+    .state('soundScapeExperience', {
+      url: '/experiences/soundscape',
+      templateUrl: '/templates/sessions/soundScapeExperience.html',
+      controller: 'SoundScapeController as soundScape'
+    })
+    .state('instrumentExperience', {
+      url: '/experiences/instrument',
+      templateUrl: '/templates/sessions/instrumentExperience.html',
+      controller: 'InstrumentExperienceController as instrumentExperience'
+    })
+    .state('breathingExercise', {
+      url: '/experiences/breathing',
+      templateUrl: '/templates/sessions/breathingExercise.html',
+      controller: 'BreathingExerciseController as breathingExercise'
+    })
+    .state('elizaChatBot', {
+      url: '/experiences/elizaChatBot',
+      templateUrl: '/templates/sessions/elizaChatBot.html',
+      controller: 'ElizaChatBotController as elizaChatBot'
     });
 
   $urlRouterProvider.otherwise('/moodIndex');
