@@ -28,7 +28,11 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('search', {
       url: '/search',
-      templateUrl: '/templates/search.html',
+      templateUrl: '/templates/searchEngine/search.html'
+    })
+    .state('searchPictures', {
+      url: '/search/pictures',
+      templateUrl: '/templates/searchEngine/searchPictures.html',
       controller: 'PicturesIndexController as picturesIndex'
     })
     .state('soundScapeExperience', {
