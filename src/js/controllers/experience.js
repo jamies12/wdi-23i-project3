@@ -2,7 +2,8 @@ angular.module('moodApp')
   .controller('SoundScapeController', SoundScapeController)
   .controller('InstrumentExperienceController', InstrumentExperienceController)
   .controller('BreathingExerciseController', BreathingExerciseController)
-  .controller('ElizaChatBotController', ElizaChatBotController);
+  .controller('ElizaChatBotController', ElizaChatBotController)
+  .controller('MoodCarouselController', MoodCarouselController);
 
 
 SoundScapeController.$inject = [];
@@ -22,5 +23,10 @@ function BreathingExerciseController() {
 
 ElizaChatBotController.$inject = [];
 function ElizaChatBotController() {
-  
+
+}
+
+MoodCarouselController.$inject = [];
+function MoodCarouselController() {
+
 }
