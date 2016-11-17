@@ -1,5 +1,5 @@
 angular
-  .module('moodApp', ['ngResource', 'ui.router', 'satellizer'])
+  .module('moodApp', ['ngResource', 'ui.router', 'satellizer', 'angular-carousel'])
   .config(Router)
   .config(Auth);
 
@@ -35,6 +35,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/searchEngine/searchPictures.html',
       controller: 'PicturesIndexController as picturesIndex'
     })
+    .state('userData', {
+      url: '/userData',
+      templateUrl: '/templates/userData.html',
+      controller: 'UserDataController as userData'
+    })
     .state('soundScapeExperience', {
       url: '/experiences/soundscape',
       templateUrl: '/templates/sessions/soundScapeExperience.html',
@@ -54,6 +59,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/experiences/elizaChatBot',
       templateUrl: '/templates/sessions/elizaChatBot.html',
       controller: 'ElizaChatBotController as elizaChatBot'
+    })
+    .state('moodCarousel', {
+      url: '/templates/moodCarousel',
+      templateUrl: '/templates/moodCarousel.html',
+      controller: 'MoodCarouselController as moodCarousel'
     });
 
   $urlRouterProvider.otherwise('/moodIndex');
