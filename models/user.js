@@ -12,7 +12,8 @@ const userSchema = new mongoose.Schema({
   interests: { type: String },
   favouriteAnimal: { type: String },
   hopeToGain: { type: String },
-  passwordHash: { type: String }
+  passwordHash: { type: String },
+  imageChoice: [{ type: String }]
 });
 
 function setPassword(value){
