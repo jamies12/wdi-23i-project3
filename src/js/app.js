@@ -18,13 +18,18 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('moodIndex', {
       url: '/moodIndex',
-      templateUrl: '/templates/moodIndex.html',
+      templateUrl: '/templates/moodIndex.html'
       // controller: 'moodIndexController as moodIndex'
     })
     .state('userForm', {
       url: '/userForm',
       templateUrl: '/templates/userForm.html',
       controller: 'UserFormController as userForm'
+    })
+    .state('search', {
+      url: '/search',
+      templateUrl: '/templates/search.html',
+      controller: 'PicturesIndexController as picturesIndex'
     })
     .state('soundScapeExperience', {
       url: '/experiences/soundscape',

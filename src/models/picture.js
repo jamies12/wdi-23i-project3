@@ -1,9 +1,9 @@
 angular.module('moodApp')
-  .factory('Picture', Picture);
+  .factory('Pictures', Pictures);
 
-Picture.$inject = ['$resource'];
+Pictures.$inject = ['$resource'];
 
-function Picture($resource) {
+function Pictures($resource) {
   return new $resource('/pictures/:id', { id: '@_id' }, {
     update: { method: 'PUT'}
   });

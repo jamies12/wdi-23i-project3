@@ -1,0 +1,16 @@
+<section>
+  <label>Search: <input ng-model="searchText"></label>
+  <ul>
+    <li ng-if="!searchText.dirty" ng-repeat="pictures in picturesIndex.all | filter:searchText">
+      <img id="searchResultPicture" ng-src="{{ pictures.source }}"/>
+
+    </li>
+  </ul>
+</section>
+
+
+<!-- <table id="searchTextResults">
+  <tr><th>Name</th><th>Phone</th></tr>
+  <tr ng-repeat="friend in friends | filter:searchText"> -->
+
+    <!-- ng-show="pictures.tag === 'cat'" -->
