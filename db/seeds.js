@@ -23,6 +23,15 @@ User.create({
   Interests: 'Wood Carving',
   FavAnimal: 'Red Panda',
   HopeToGain: 'Enlightenment',
+  journals: [
+    { title: 'My First Day',
+      journalEntry: 'I feel like this could be something new and special to help me on my spiritual journey'
+    },
+    {
+      title: 'NO TRUMP NOOOOO',
+      journalEntry: 'Not down to this site, but I cannot get trump out of my mind. Well you know what they say "Got my mind on my Trump and my Trump on my mind" OH GOD!! :('
+    }
+  ],
   password: 'jimJam',
   passwordConfirmation: 'jimJam'
 }, (err, user1) => {
@@ -56,6 +65,6 @@ Video.create([{
 }], (err, videos) => {
   if (err) return console.log(err);
   console.log('Videos added:', videos);
-  
+
   mongoose.connection.close();
 });

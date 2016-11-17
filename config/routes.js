@@ -3,7 +3,7 @@ const authController = require('../controllers/auth');
 const usersController = require('../controllers/users');
 const picturesController = require('../controllers/pictures');
 const videosController = require('../controllers/videos');
-
+const journalsController = require('../controllers/journals');
 
 router
   .post('/login', authController.login)
@@ -17,6 +17,15 @@ router.route('/users/:id')
   .get(usersController.show)
   .put(usersController.update)
   .delete(usersController.delete);
+
+router.route('/journals')
+  .get(journalsController.index)
+  .post(journalsController.create);
+
+router.route('/journals/:id')
+  .get(journalsController.show)
+  .put(journalsController.update)
+  .delete(journalsController.delete);
 
 router.route('/pictures')
   .get(picturesController.index)

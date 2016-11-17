@@ -1,6 +1,11 @@
 const mongoose  = require('mongoose');
 const bcrypt    = require('bcrypt');
 
+const journalSchema = new mongoose.Schema({
+  title: { type: String },
+  journalEntry: { type: String }
+});
+
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
@@ -12,6 +17,7 @@ const userSchema = new mongoose.Schema({
   interests: { type: String },
   favouriteAnimal: { type: String },
   hopeToGain: { type: String },
+  journals: [ journalSchema ],
   passwordHash: { type: String }
 });
 
@@ -77,4 +83,6 @@ userSchema.set('toJSON', {
   }
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose
+  .model('User', userSchema)
+  .model('Journal', journalSchema);

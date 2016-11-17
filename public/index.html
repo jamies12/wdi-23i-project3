@@ -34,11 +34,13 @@
 
         </ul>
       </nav>
-      <section class="journal">
+      <section ng-if="main.isLoggedIn()" class="journal">
         <form class="" action="index.html" method="post">
-          <label for="journal">Journal</label>
-          <textarea id="journal" name="journal" type="text" placeholder="Write your thoughts here"></textarea>
-          <button type="button" name="button"></button>
+          <label for="title"></label>
+          <input type="text" name="title" placeholder="Title">
+          <label for="journalEntry"></label>
+          <textarea id="journalEntry" name="journalEntry" type="text" placeholder="Write your thoughts here"></textarea>
+          <button type="button" name="button">Post your journal entry</button>
         </form>
       </section>
 
