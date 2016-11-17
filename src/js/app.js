@@ -35,6 +35,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/searchEngine/searchPictures.html',
       controller: 'PicturesIndexController as picturesIndex'
     })
+    .state('searchVideos', {
+      url: '/search/videos',
+      templateUrl: '/templates/searchEngine/searchVideos.html',
+      controller: 'VideosIndexController as videosIndex'
+    })
     .state('userData', {
       url: '/userData',
       templateUrl: '/templates/userData.html',

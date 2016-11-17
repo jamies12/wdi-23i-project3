@@ -56,5 +56,6 @@ Video.create([{
 }], (err, videos) => {
   if (err) return console.log(err);
   console.log('Videos added:', videos);
+  
   mongoose.connection.close();
 });

@@ -1,0 +1,8 @@
+<section>
+  <label>Search: <input ng-model="searchText"></label>
+  <ul>
+    <li ng-if="!searchText.dirty" ng-repeat="videos in videosIndex.all | filter:searchText">
+      <a href="{{ videos.source }}">{{ videos.tag }}</a>
+    </li>
+  </ul>
+</section>

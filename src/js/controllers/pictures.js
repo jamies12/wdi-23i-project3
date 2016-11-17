@@ -27,7 +27,7 @@ function PicturesNewController(Picture, $state) {
 
   function createPicture() {
     Picture.save(picturesNew.picture, () => {
-      $state.go('search');
+      $state.go('searchPictures');
     });
   }
 
