@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const authController = require('../controllers/auth');
 const usersController = require('../controllers/users');
+const picturesController = require('../controllers/pictures');
 
 router
   .post('/login', authController.login)
@@ -14,5 +15,9 @@ router.route('/users/:id')
   .get(usersController.show)
   .put(usersController.update)
   .delete(usersController.delete);
+
+router.route('/pictures')
+  .get(picturesController.index);
+
 
 module.exports = router;
