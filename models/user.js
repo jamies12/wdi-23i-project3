@@ -9,6 +9,7 @@ const journalSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
+  passwordHash: { type: String },
   gender: { type: String },
   age: { type: String },
   whatBringsYouHere: { type: String },
@@ -17,8 +18,7 @@ const userSchema = new mongoose.Schema({
   interests: { type: String },
   favouriteAnimal: { type: String },
   hopeToGain: { type: String },
-  journals: [ journalSchema ],
-  passwordHash: { type: String }
+  journals: [ journalSchema ]
 });
 
 function setPassword(value){
@@ -83,6 +83,11 @@ userSchema.set('toJSON', {
   }
 });
 
-module.exports = mongoose
-  .model('User', userSchema)
-  .model('Journal', journalSchema);
+
+// module.exports = mongoose.model('User', userSchema);
+// module.exports = mongoose.model('Journal', journalSchema);
+
+module.exports = {
+  UserModel: mongoose.model('User', userSchema),
+  JournalModel: mongoose.model('Journal', journalSchema)
+};

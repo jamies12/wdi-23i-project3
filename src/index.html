@@ -31,18 +31,11 @@
           <li ng-if="main.isLoggedIn()"><a ng-click="main.logout()">Logout</a></li>
           <li ng-if="main.isLoggedIn()"><a ui-sref="userForm" ui-sref-active="active">User Form</a></li>
           <li ng-if="main.isLoggedIn()"><a ui-sref="userData" ui-sref-active="active">User Data</a></li>
+          <li ng-if="main.isLoggedIn()"><a ui-sref="journals" ui-sref-active="active">Journals Data</a></li>
 
         </ul>
       </nav>
-      <section ng-if="main.isLoggedIn()" class="journal">
-        <form class="" action="index.html" method="post">
-          <label for="title"></label>
-          <input type="text" name="title" placeholder="Title">
-          <label for="journalEntry"></label>
-          <textarea id="journalEntry" name="journalEntry" type="text" placeholder="Write your thoughts here"></textarea>
-          <button type="button" name="button">Post your journal entry</button>
-        </form>
-      </section>
+
 
       <main ui-view></main>
 

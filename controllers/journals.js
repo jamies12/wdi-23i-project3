@@ -1,4 +1,4 @@
-const Journal = require('../models/user');
+const Journal = require('../models/user').JournalModel;
 
 function journalsIndex(req, res) {
   Journal.find((err, journals) => {

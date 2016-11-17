@@ -1,0 +1,14 @@
+<h1>View your Journals</h1>
+
+<ul>
+  <li ng-if="main.isLoggedIn()"><a ui-sref="journalsCreate" ui-sref-active="active">Add a journal entry</a></li>
+</ul>
+
+<section>
+  <ul>
+    <li ng-repeat="journals in journalsIndex.all">
+      <h2>{{ journals.title }}</h2>
+      <p>{{ journals.journalEntry }}</p>
+    </li>
+  </ul>
+</section>

@@ -3,40 +3,43 @@ const db = require('../config/db');
 
 mongoose.connect(db.uri);
 
-const User = require('../models/user');
+const User = require('../models/user').UserModel;
 const Picture = require('../models/picture');
 const Video = require('../models/video');
+const Journal = require('../models/user').JournalModel;
 
 User.collection.drop();
+Journal.collection.drop();
 Picture.collection.drop();
 Video.collection.drop();
 
 
-User.create({
-  username: 'jim',
-  email: 'jim@jam.com',
-  Gender: 'Male',
-  Age: '23',
-  WhatBringsYouHere: 'Mindfulness',
-  Worries: 'Donald Trump',
-  Happiness: 'Red Pandas',
-  Interests: 'Wood Carving',
-  FavAnimal: 'Red Panda',
-  HopeToGain: 'Enlightenment',
-  journals: [
-    { title: 'My First Day',
-      journalEntry: 'I feel like this could be something new and special to help me on my spiritual journey'
-    },
-    {
-      title: 'NO TRUMP NOOOOO',
-      journalEntry: 'Not down to this site, but I cannot get trump out of my mind. Well you know what they say "Got my mind on my Trump and my Trump on my mind" OH GOD!! :('
-    }
-  ],
-  password: 'jimJam',
-  passwordConfirmation: 'jimJam'
-}, (err, user1) => {
+Journal.create({
+  title: 'My First Day',
+  journalEntry: 'I feel like this could be something new and special to help me on my spiritual journey'
+}, (err, journal1) => {
   if (err) return console.log(err);
-  console.log('User 1 Added!', user1);
+  console.log('Journal 1 added!', journal1);
+
+
+  User.create({
+    username: 'jim',
+    email: 'jim@jam.com',
+    Gender: 'Male',
+    Age: '23',
+    WhatBringsYouHere: 'Mindfulness',
+    Worries: 'Donald Trump',
+    Happiness: 'Red Pandas',
+    Interests: 'Wood Carving',
+    FavAnimal: 'Red Panda',
+    HopeToGain: 'Enlightenment',
+    journals: {journal1},
+    password: 'jimJam',
+    passwordConfirmation: 'jimJam'
+  }, (err, user1) => {
+    if (err) return console.log(err);
+    console.log('User 1 Added!', user1);
+  });
 });
 
 Picture.create([{

@@ -1,11 +1,12 @@
-const User = require('../models/user');
+const User = require('../models/user').UserModel;
 const jwt = require('jsonwebtoken');
 const secret = require('../config/tokens').secret;
 
 function register(req, res){
+  console.log(req.body);
   User.create(req.body, (err, user) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
-
+    console.log(user);
     const payload = { _id: user._id, username: user.username };
     const token = jwt.sign(payload, secret, { expiresIn: 60*60*24 });
 
