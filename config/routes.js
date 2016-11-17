@@ -17,7 +17,12 @@ router.route('/users/:id')
   .delete(usersController.delete);
 
 router.route('/pictures')
-  .get(picturesController.index);
+  .get(picturesController.index)
+  .post(picturesController.create);
+
+router.route('/pictures/:id')
+  .get(picturesController.show);
+
 
 
 module.exports = router;
