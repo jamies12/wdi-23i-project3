@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/user').UserModel;
 
 function usersIndex(req, res) {
   User.find((err, users) => {
