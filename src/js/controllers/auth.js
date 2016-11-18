@@ -14,6 +14,8 @@ function RegisterController($auth, $state) {
   }
   register.submit = submit;
 }
+
+
 LoginController.$inject = ['$auth', '$state'];
 function LoginController($auth, $state) {
   const login = this;

@@ -1,3 +1,6 @@
+<li ng-if="main.isLoggedIn()"><a ui-sref="search" ui-sref-active="active">Browse Content</a></li>
+<li ng-if="main.isLoggedIn()"><a ui-sref="searchVideos" ui-sref-active="active">Browse Videos</a></li>
+
 <section>
   <label>Search: <input ng-model="searchText"></label>
   <ul>

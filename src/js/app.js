@@ -40,6 +40,16 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/searchEngine/searchVideos.html',
       controller: 'VideosIndexController as videosIndex'
     })
+    .state('journals', {
+      url: '/journals',
+      templateUrl: '/templates/journals/journalsEntries.html',
+      controller: 'JournalsIndexController as journalsIndex'
+    })
+    .state('journalsCreate', {
+      url: '/journals/create',
+      templateUrl: '/templates/journals/journalCreate.html',
+      controller: 'JournalsNewController as journalsNew'
+    })
     .state('userData', {
       url: '/userData',
       templateUrl: '/templates/userData.html',
