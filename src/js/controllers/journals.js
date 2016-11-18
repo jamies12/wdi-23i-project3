@@ -4,11 +4,15 @@ angular.module('moodApp')
   .controller('JournalsNewController', JournalsNewController)
   .controller('JournalsEditController', JournalsEditController);
 
-JournalsIndexController.$inject = ['Journal'];
-function JournalsIndexController(Journal) {
+JournalsIndexController.$inject = ['Journal', 'User', '$auth'];
+function JournalsIndexController(Journal, User, $auth) {
   const journalsIndex = this;
 
-  journalsIndex.all = Journal.query();
+  journalsIndex.user = User.get({ id: $auth.getPayload()._id });
+  journalsIndex.all = Journal.get([]);
+  console.log(journalsIndex.user.journals());
+  console.log(journalsIndex.all);
+  journalsIndex.user.all = Journal.query();
 }
 
 JournalsShowController.$inject = ['Journal', '$state', '$auth'];
@@ -27,15 +31,17 @@ function JournalsShowController(Journal, $state, $auth) {
   journalsShow.delete = remove;
 }
 
-JournalsNewController.$inject = ['Journal', '$state'];
-function JournalsNewController(Journal, $state) {
+JournalsNewController.$inject = ['Journal', '$state', 'User', '$auth'];
+function JournalsNewController(Journal, $state, User, $auth) {
   const journalsNew = this;
 
-  journalsNew.journal = {};
+  journalsNew.user = User.get({ id: $auth.getPayload()._id });
+
+  journalsNew.user.journal = {};
 
   function createJournal() {
     console.log(Journal);
-    Journal.save(journalsNew.journal, () => {
+    Journal.save(journalsNew.user.journal, () => {
       $state.go('journals');
 
     });
