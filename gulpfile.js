@@ -70,9 +70,15 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('public/css'));
 });
 
+// elizabot
+gulp.task('elizabot', () => {
+  return gulp.src('src/elizabot/**/*')
+    .pipe(gulp.dest('public'));
+});
+
 // html
 gulp.task('html', () => {
-  return gulp.src('src/**/*.html')
+  return gulp.src(['src/**/*.html', '!src/elizabot/**/*'])
     .pipe(gulp.dest('public'))
     .pipe(livereload());
 });
@@ -97,9 +103,10 @@ gulp.task('nodemon', () => {
 gulp.task('watch', () => {
   livereload.listen();
   gulp.watch('src/**/*.html', ['html']);
+  gulp.watch('src/elizabot/**/*', ['elizabot']);
   gulp.watch('src/**/*.js', ['scripts']);
   gulp.watch('src/**/*.scss', ['styles']);
   gulp.watch('src/images/*', ['images']);
 });
 
-gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'html', 'images'], 'watch', 'nodemon'));
+gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'elizabot', 'html', 'images'], 'watch', 'nodemon'));

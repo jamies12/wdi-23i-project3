@@ -84,9 +84,13 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/templates/imageSelect',
       templateUrl: '/templates/imageSelect.html',
       controller: 'ImageSelectController as imageSelect'
+    })
+    .state('elizabot', {
+      url: '/templates/sessions/elizabot',
+      templateUrl: '/templates/sessions/elizabot.html'
     });
 
-  $urlRouterProvider.otherwise('/moodIndex');
+  $urlRouterProvider.otherwise('/');
 }
 Auth.$inject = ['$authProvider'];
 function Auth($authProvider) {
