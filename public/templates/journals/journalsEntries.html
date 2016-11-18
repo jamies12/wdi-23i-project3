@@ -8,7 +8,9 @@
   <ul>
     <li ng-repeat="journals in journalsIndex.user.journals">
       <h2>{{ journals.title }}</h2>
-      <p>{{ journals.journalEntry }}</p>
+      <p>{{ journals.journalEntry.entry }}</p>
+      <p>{{ journals.journalEntry.timeStamp }}</p>
+
     </li>
   </ul>
 </section>
