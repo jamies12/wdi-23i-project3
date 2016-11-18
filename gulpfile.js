@@ -73,7 +73,7 @@ gulp.task('styles', () => {
 // elizabot
 gulp.task('elizabot', () => {
   return gulp.src('src/elizabot/**/*')
-    .pipe(gulp.dest('public'));
+    .pipe(gulp.dest('public/elizabot'));
 });
 
 // html
