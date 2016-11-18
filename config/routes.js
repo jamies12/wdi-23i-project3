@@ -18,14 +18,14 @@ router.route('/users/:id')
   .put(usersController.update)
   .delete(usersController.delete);
 
-router.route('/journals')
-  .get(journalsController.index)
-  .post(journalsController.create);
-
-router.route('/journals/:id')
-  .get(journalsController.show)
-  .put(journalsController.update)
-  .delete(journalsController.delete);
+// router.route('/journals')
+//   .get(journalsController.index)
+//   .post(journalsController.create);
+//
+// router.route('/journals/:id')
+//   .get(journalsController.show)
+//   .put(journalsController.update)
+//   .delete(journalsController.delete);
 
 router.route('/pictures')
   .get(picturesController.index)

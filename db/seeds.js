@@ -33,7 +33,7 @@ Journal.create({
     Interests: 'Wood Carving',
     FavAnimal: 'Red Panda',
     HopeToGain: 'Enlightenment',
-    journals: {journal1},
+    journals: journal1,
     password: 'jimJam',
     passwordConfirmation: 'jimJam'
   }, (err, user1) => {

@@ -1,12 +1,14 @@
 <section ng-if="main.isLoggedIn()" class="journal">
-  <form ng-submit="journalsNew.create()" action="index.html" method="post">
+  <form ng-submit="journalsNew.create()">
     <div>
-      <input type="text" name="title" placeholder="Title" ng-model="journalsNew.journal.title">
+      <input type="text" name="title" placeholder="Title" ng-model="journalsNew.newJournal.title">
     </div>
 
     <div>
-      <textarea id="journalEntry" name="journalEntry" type="text" placeholder="Write your thoughts here" ng-model="journalsNew.journal.journalEntry"></textarea>
+      <textarea id="journalEntry" name="journalEntry" type="text" placeholder="Write your thoughts here" ng-model="journalsNew.newJournal.journalEntry"></textarea>
     </div>
     <button>Post your journal entry</button>
+    {{journalsNew.newJournal}}
+    {{journalsNew.user}}
   </form>
 </section>

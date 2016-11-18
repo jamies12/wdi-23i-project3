@@ -9,10 +9,10 @@ function JournalsIndexController(Journal, User, $auth) {
   const journalsIndex = this;
 
   journalsIndex.user = User.get({ id: $auth.getPayload()._id });
-  journalsIndex.all = Journal.get([]);
-  console.log(journalsIndex.user.journals());
-  console.log(journalsIndex.all);
-  journalsIndex.user.all = Journal.query();
+  // journalsIndex.all = Journal.get([]);
+  // console.log(journalsIndex.user.journals());
+  // console.log(journalsIndex.all);
+  // journalsIndex.user.all = Journal.query();
 }
 
 JournalsShowController.$inject = ['Journal', '$state', '$auth'];
@@ -36,14 +36,12 @@ function JournalsNewController(Journal, $state, User, $auth) {
   const journalsNew = this;
 
   journalsNew.user = User.get({ id: $auth.getPayload()._id });
-
-  journalsNew.user.journal = {};
+  journalsNew.newJournal = {};
 
   function createJournal() {
-    console.log(Journal);
-    Journal.save(journalsNew.user.journal, () => {
+    journalsNew.user.journals.push(journalsNew.newJournal);
+    User.update(journalsNew.user, () => {
       $state.go('journals');
-
     });
   }
 

@@ -6,7 +6,7 @@
 
 <section>
   <ul>
-    <li ng-repeat="journals in journalsIndex.all">
+    <li ng-repeat="journals in journalsIndex.user.journals">
       <h2>{{ journals.title }}</h2>
       <p>{{ journals.journalEntry }}</p>
     </li>

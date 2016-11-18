@@ -79,6 +79,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/templates/moodCarousel',
       templateUrl: '/templates/moodCarousel.html',
       controller: 'MoodCarouselController as moodCarousel'
+    })
+    .state('imageSelect', {
+      url: '/templates/imageSelect',
+      templateUrl: '/templates/imageSelect.html',
+      controller: 'ImageSelectController as imageSelect'
     });
 
   $urlRouterProvider.otherwise('/moodIndex');

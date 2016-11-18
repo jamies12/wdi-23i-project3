@@ -18,7 +18,8 @@ const userSchema = new mongoose.Schema({
   interests: { type: String },
   favouriteAnimal: { type: String },
   hopeToGain: { type: String },
-  journals: [ journalSchema ]
+  journals: [ journalSchema ],
+  imageChoice: [{ type: String }]
 });
 
 function setPassword(value){
