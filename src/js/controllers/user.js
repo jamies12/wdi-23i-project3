@@ -71,20 +71,23 @@ function ImageSelectController($auth, User, $state) {
 
   imageSelect.user = User.get({ id: $auth.getPayload()._id });
 
-  imageSelect.images1 = ['meadow', 'beach', 'chocolate', 'cats', 'clouds', 'countryside', 'whisky'];
-  imageSelect.images2 = ['mountains', 'forest', 'fruit', 'dogs', 'lake', 'city', 'cocktails'];
+  imageSelect.images1 = [{title: 'meadow', src: '../images/meadow.jpg'}, {title: 'beach', src: '../images/beach.jpg'}, {title: 'chocolate', src: '../images/chocolate.jpg'}, {title: 'cats', src: '../images/cats.jpg'}, {title: 'clouds', src: '../images/clouds.jpg'}, {title: 'countryside', src: '../images/countryside.jpg'}];
+  imageSelect.images2 = [{title: 'mountains', src: '../images/mountains.jpg'}, {title: 'forest', src: '../images/forest.jpg'}, {title: 'fruit', src: '../images/fruit.jpg'}, {title: 'dogs', src: '../images/dogs.jpg'}, {title: 'waterfall', src: '../images/waterfall.jpg'}, {title: 'city', src: '../images/city.jpg'}];
 
   let counter = 0;
   imageSelect.setImage1 = imageSelect.images1[counter];
   imageSelect.setImage2 = imageSelect.images2[counter];
 
+  imageSelect.setTitle1 = imageSelect.images1[counter].title;
+  imageSelect.setTitle2 = imageSelect.images2[counter].title;
+
   function imageSelection(which) {
     if(which === 1) {
       console.log(imageSelect.setImage1);
-      imageSelect.user.imageChoice.push(imageSelect.setImage1);
+      imageSelect.user.imageChoice.push(imageSelect.setTitle1);
     } else {
       console.log(imageSelect.setImage2);
-      imageSelect.user.imageChoice.push(imageSelect.setImage2);
+      imageSelect.user.imageChoice.push(imageSelect.setTitle2);
     }
 
     counter++;
