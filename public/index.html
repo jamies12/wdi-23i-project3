@@ -20,6 +20,7 @@
 
     <nav>
         <ul>
+          <li ng-if="main.isLoggedIn()" ng-controller="UserDataController as userData">Current User is {{userData.user.username}}</li>
           <li ng-if="main.isLoggedIn()"><a ui-sref="moodIndex" ui-sref-active="active">Moodz Index Page</a></li>
           <li ng-if="main.isLoggedIn()"><a ui-sref="moodCarousel" ui-sref-active="active">Mood Carousel</a></li>
           <li ng-if="main.isLoggedIn()"><a ui-sref="imageSelect" ui-sref-active="active">Image Select</a></li>

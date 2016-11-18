@@ -37,13 +37,17 @@ function MoodCarouselController($auth, User, $state) {
 
   moodCarousel.user = User.get({ id: $auth.getPayload()._id });
 
-  function moodSelect(mood) {
-    console.log('clicked: ', mood);
+  function moodSelect(mood, moodValue) {
+    console.log('clicked: ', mood, moodValue);
+    // console.log(moodCarousel.user.mood);
 
-
-    moodCarousel.user.mood = mood;
+    moodCarousel.user.newMood = {};
+    moodCarousel.user.newMood.mood = mood;
+    moodCarousel.user.newMood.value = moodValue;
+    moodCarousel.user.newMood.timeStamp = Date.now();
     console.log(moodCarousel.user);
 
+    moodCarousel.user.mood.push(moodCarousel.user.newMood);
 
     const updateResult = User.update({id: $auth.getPayload()._id}, moodCarousel.user);
     console.log('updateResult:', updateResult);
@@ -71,8 +75,24 @@ function ImageSelectController($auth, User, $state) {
 
   imageSelect.user = User.get({ id: $auth.getPayload()._id });
 
-  imageSelect.images1 = [{title: 'meadow', src: '../images/meadow.jpg'}, {title: 'beach', src: '../images/beach.jpg'}, {title: 'chocolate', src: '../images/chocolate.jpg'}, {title: 'cats', src: '../images/cats.jpg'}, {title: 'clouds', src: '../images/clouds.jpg'}, {title: 'countryside', src: '../images/countryside.jpg'}];
-  imageSelect.images2 = [{title: 'mountains', src: '../images/mountains.jpg'}, {title: 'forest', src: '../images/forest.jpg'}, {title: 'fruit', src: '../images/fruit.jpg'}, {title: 'dogs', src: '../images/dogs.jpg'}, {title: 'waterfall', src: '../images/waterfall.jpg'}, {title: 'city', src: '../images/city.jpg'}];
+  imageSelect.images1 = [
+    {title: 'meadow', src: '../images/meadow.jpg'},
+    {title: 'beach', src: '../images/beach.jpg'},
+    {title: 'chocolate', src: '../images/chocolate.jpg'},
+    {title: 'cats', src: '../images/cats.jpg'},
+    {title: 'clouds', src: '../images/clouds.jpg'},
+    {title: 'countryside', src: '../images/countryside.jpg'},
+    {padding: 'padding'}
+  ];
+  imageSelect.images2 = [
+    {title: 'mountains', src: '../images/mountains.jpg'},
+    {title: 'forest', src: '../images/forest.jpg'},
+    {title: 'fruit', src: '../images/fruit.jpg'},
+    {title: 'dogs', src: '../images/dogs.jpg'},
+    {title: 'waterfall', src: '../images/waterfall.jpg'},
+    {title: 'city', src: '../images/city.jpg'},
+    {padding: 'padding'}
+  ];
 
   let counter = 0;
   imageSelect.setImage1 = imageSelect.images1[counter];
@@ -83,22 +103,29 @@ function ImageSelectController($auth, User, $state) {
 
   function imageSelection(which) {
     if(which === 1) {
-      console.log(imageSelect.setImage1);
+      console.log(imageSelect.setTitle1);
       imageSelect.user.imageChoice.push(imageSelect.setTitle1);
     } else {
-      console.log(imageSelect.setImage2);
+      console.log(imageSelect.setTitle2);
       imageSelect.user.imageChoice.push(imageSelect.setTitle2);
     }
 
     counter++;
+    console.log(counter);
+    console.log(imageSelect.images1.length);
     imageSelect.setImage1 = imageSelect.images1[counter];
     imageSelect.setImage2 = imageSelect.images2[counter];
+
+    imageSelect.setTitle1 = imageSelect.images1[counter].title;
+    imageSelect.setTitle2 = imageSelect.images2[counter].title;
+
 
 
     const updateResult = User.update({id: $auth.getPayload()._id}, imageSelect.user);
     console.log('updateResult:', updateResult);
 
-    if (counter === imageSelect.images1.length) {
+    if (counter === imageSelect.images1.length -1) {
+      console.log('done');
       $state.go('moodCarousel');
     }
   }

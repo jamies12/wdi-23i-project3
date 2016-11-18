@@ -3,7 +3,10 @@ const bcrypt    = require('bcrypt');
 
 const journalSchema = new mongoose.Schema({
   title: { type: String },
-  journalEntry: { type: String }
+  journalEntry: {
+    entry: { type: String },
+    timeStamp: { type: Date }
+  }
 });
 
 const userSchema = new mongoose.Schema({
@@ -19,8 +22,13 @@ const userSchema = new mongoose.Schema({
   favouriteAnimal: { type: String },
   hopeToGain: { type: String },
   journals: [ journalSchema ],
-  imageChoice: [{ type: String }]
-});
+  imageChoice: [{ type: String }],
+  mood: [{
+    mood: {type: String},
+    value: {type: Number},
+    timeStamp: { type: Date }
+  }]
+}, { timestamps: { createdAt: 'created_at' }});
 
 function setPassword(value){
   this._password = value;

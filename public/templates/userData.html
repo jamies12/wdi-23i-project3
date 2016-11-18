@@ -6,6 +6,9 @@
 <p>{{ userData.user.happiness }}</p>
 <p>{{ userData.user.interests }}</p>
 <p>{{ userData.user.favouriteAnimal }}</p>
-<p>{{ userData.user.mood }}</p>
+<p>{{ userData.user.mood[0].mood}}</p>
+<p>{{ userData.user.mood[0].value}}</p>
+<p>{{ userData.user.mood[0].timeStamp}}</p>
+<p>{{ userData.user }}</p>
 
 <a ui-sref="userForm" ui-sref-active="active">User Form</a>

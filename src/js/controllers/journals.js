@@ -39,7 +39,12 @@ function JournalsNewController(Journal, $state, User, $auth) {
   journalsNew.user = User.get({ id: $auth.getPayload()._id });
   journalsNew.newJournal = {};
 
+
+
+
   function createJournal() {
+    journalsNew.newJournal.journalEntry.timeStamp = Date.now();
+    console.log('your entry', journalsNew.newJournal);
     journalsNew.user.journals.push(journalsNew.newJournal);
     User.update(journalsNew.user, () => {
       $state.go('journals');
