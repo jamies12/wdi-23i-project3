@@ -9,6 +9,7 @@ function JournalsIndexController(Journal, User, $auth) {
   const journalsIndex = this;
 
   journalsIndex.user = User.get({ id: $auth.getPayload()._id });
+  console.log(journalsIndex.user);
   // journalsIndex.all = Journal.get([]);
   // console.log(journalsIndex.user.journals());
   // console.log(journalsIndex.all);
