@@ -22,6 +22,7 @@
         <ul>
           <li ng-if="main.isLoggedIn()"><a ui-sref="moodIndex" ui-sref-active="active">Moodz Index Page</a></li>
           <li ng-if="main.isLoggedIn()"><a ui-sref="moodCarousel" ui-sref-active="active">Mood Carousel</a></li>
+          <li ng-if="main.isLoggedIn()"><a ui-sref="imageSelect" ui-sref-active="active">Image Select</a></li>
           <li ng-if="!main.isLoggedIn()"><a ui-sref="register" ui-sref-active="active">Register</a></li>
           <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
           <li ng-if="main.isLoggedIn()"><a ui-sref="soundScapeExperience" ui-sref-active="active">soundScapeExperience</a></li>
