@@ -1,5 +1,5 @@
 angular
-  .module('moodApp', ['ngResource', 'ui.router', 'satellizer', 'angular-carousel'])
+  .module('moodApp', ['ngResource', 'ui.router', 'satellizer', 'angular-carousel', 'whimsicalRipple'])
   .config(Router)
   .config(Auth);
 
