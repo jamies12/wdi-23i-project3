@@ -16,16 +16,28 @@ function RegisterController($auth, $state) {
 }
 
 
-LoginController.$inject = ['$auth', '$state'];
-function LoginController($auth, $state) {
+LoginController.$inject = ['$auth', '$state', 'User'];
+function LoginController($auth, $state, User) {
   const login = this;
   login.credentials = {};
   function submit() {
     $auth.login(login.credentials)
     .then(() => {
-      $state.go('userForm');
+
+      User.get({ id: $auth.getPayload()._id }, (user) => {
+        login.user = user;
+        console.log('you', login.user);
+        console.log('is this your first time', login.user.isFirstTime);
+
+        if(!login.user.isFirstTime) {
+          $state.go('moodCarousel');
+        } else {
+          $state.go('userForm');
+        }
+      });
     });
   }
+  
   function authenticate(provider) {
     $auth.authenticate(provider)
     .then((res) => {

@@ -23,6 +23,7 @@ const userSchema = new mongoose.Schema({
   hopeToGain: { type: String },
   journals: [ journalSchema ],
   imageChoice: [{ type: String }],
+  isFirstTime: {type: Boolean, default: true},
   mood: [{
     mood: {type: String},
     value: {type: Number},

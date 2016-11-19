@@ -7,16 +7,28 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/vendor.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script> -->
+
 
 
 
   </head>
   <body ng-controller="MainController as main">
-    <h1>Project 3</h1>
+
+    <article ng-if="main.isLoggedIn()" ng-app="angularSlideables">
+    <h1 class="slideDown" slide-toggle="#derp" > End / settings logo here </h1>
+      <div id="derp" class="slideable">
+        <p>
+          <ul>
+            <li class="slideDown" slide-toggle="#derp"><a ui-sref="journals" ui-sref-active="active">Journal Entry</a></li>
+            <li><a ui-sref="userData" ui-sref-active="active">Your Profile</a></li>
+            <li><a ui-sref="sessions" ui-sref-active="active">Change session</a></li>
+            <li><a ui-sref="moodCarousel" ui-sref-active="active">End your session</a></li>
+            <li><a ng-click="main.logout()">Logout</a></li>
+          </ul>
+        </p>
+      </div>
+    </article>
+
 
     <nav>
         <ul>

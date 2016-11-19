@@ -15,7 +15,7 @@ function UserFormController($auth, User, $state) {
     userForm.user.$update(() => {
 
       console.log('post update your data', userForm.user);
-      $state.go('moodIndex');
+      $state.go('imageSelect');
     });
   }
 
@@ -59,7 +59,7 @@ function MoodCarouselController($auth, User, $state) {
    //   console.log('moodCarousel.user.$update: find out why we got here!!');
    // }, () => {
    //   console.log('your data', moodCarousel.user);
-    $state.go('userData');
+    $state.go('sessions');
    // }, () => {
    //   console.log('moodCarousel.user.$update: error(?): arguments:', arguments);
    // });
@@ -126,6 +126,12 @@ function ImageSelectController($auth, User, $state) {
 
     if (counter === imageSelect.images1.length -1) {
       console.log('done');
+
+      imageSelect.user.isFirstTime = false;
+      const updateResult = User.update({id: $auth.getPayload()._id}, imageSelect.user);
+      console.log('updateResult:', updateResult);
+
+
       $state.go('moodCarousel');
     }
   }
@@ -133,3 +139,53 @@ function ImageSelectController($auth, User, $state) {
   imageSelect.imageChoice = imageSelection;
 
 }
+
+
+
+angular.module('angularSlideables', [])
+.directive('slideable', function () {
+  return {
+    restrict: 'C',
+    compile: function (element, attr) {
+            // wrap tag
+      var contents = element.html();
+      element.html('<div class="slideable_content" style="margin:0 !important; padding:0 !important" >' + contents + '</div>');
+
+      return function postLink(scope, element, attrs) {
+                // default properties
+        attrs.duration = (!attrs.duration) ? '1s' : attrs.duration;
+        attrs.easing = (!attrs.easing) ? 'ease-in-out' : attrs.easing;
+        element.css({
+          'overflow': 'hidden',
+          'height': '0px',
+          'transitionProperty': 'height',
+          'transitionDuration': attrs.duration,
+          'transitionTimingFunction': attrs.easing
+        });
+      };
+    }
+  };
+})
+.directive('slideToggle', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      console.log(element);
+      var target = document.querySelector(attrs.slideToggle);
+      attrs.expanded = false;
+      element.bind('click', function() {
+        console.log(element, 'slide down', attrs);
+        var content = target.querySelector('.slideable_content');
+        if(!attrs.expanded) {
+          content.style.border = '1px solid rgba(0,0,0,0)';
+          var y = content.clientHeight;
+          content.style.border = 0;
+          target.style.height = y + 'px';
+        } else {
+          target.style.height = '0px';
+        }
+        attrs.expanded = !attrs.expanded;
+      });
+    }
+  };
+});

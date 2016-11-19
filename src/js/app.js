@@ -1,5 +1,5 @@
 angular
-  .module('moodApp', ['ngResource', 'ui.router', 'satellizer', 'angular-carousel'])
+  .module('moodApp', ['ngResource', 'ui.router', 'satellizer', 'angular-carousel', 'angularSlideables'])
   .config(Router)
   .config(Auth);
 
@@ -88,6 +88,11 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('elizabot', {
       url: '/templates/sessions/elizabot',
       templateUrl: '/templates/sessions/elizabot.html'
+    })
+    .state('sessions', {
+      url: '/sessions',
+      templateUrl: '/templates/sessions/sessions.html'
+      // controller: 'sessionsController as sessions'
     });
 
   $urlRouterProvider.otherwise('/');
