@@ -14,13 +14,13 @@ function SoundScapeController() {
 InstrumentExperienceController.$inject = [];
 function InstrumentExperienceController() {
 
-  this.cells = [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
+  this.sounds = [
+    '/audio/Vibraphone0.mp3',
+    '/audio/Vibraphone1.mp3',
+    '/audio/Vibraphone2.mp3',
+    '/audio/Vibraphone3.mp3',
+    '/audio/Vibraphone4new.mp3',
+    '/audio/Vibraphone5.mp3'
   ];
 
   function click($index) {

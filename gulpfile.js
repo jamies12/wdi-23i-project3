@@ -76,6 +76,12 @@ gulp.task('elizabot', () => {
     .pipe(gulp.dest('public/elizabot'));
 });
 
+// audio
+gulp.task('audio', () => {
+  return gulp.src('src/audio/**/*')
+    .pipe(gulp.dest('public/audio'));
+});
+
 // html
 gulp.task('html', () => {
   return gulp.src(['src/**/*.html', '!src/elizabot/**/*'])
@@ -104,9 +110,10 @@ gulp.task('watch', () => {
   livereload.listen();
   gulp.watch('src/**/*.html', ['html']);
   gulp.watch('src/elizabot/**/*', ['elizabot']);
+  gulp.watch('src/audio/**/*', ['audio']);
   gulp.watch('src/**/*.js', ['scripts']);
   gulp.watch('src/**/*.scss', ['styles']);
   gulp.watch('src/images/*', ['images']);
 });
 
-gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'elizabot', 'html', 'images'], 'watch', 'nodemon'));
+gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'elizabot', 'audio', 'html', 'images'], 'watch', 'nodemon'));
