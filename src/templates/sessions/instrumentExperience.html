@@ -1,1 +1,9 @@
 <h1>Instrument</h1>
+
+<section>
+  <ul id="instrumentBoard">
+    <li id="instrumentPad" ng-repeat="cell in instrumentExperience.cells track by $index" ng-click="instrumentExperience.click($index)">
+      {{ cell }}
+    </li>
+  </ul>
+</section>

@@ -72,7 +72,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('elizaChatBot', {
       url: '/experiences/elizaChatBot',
-      templateUrl: '/templates/sessions/elizaChatBot.html',
+      templateUrl: '/templates/sessions/elizabot.html',
       controller: 'ElizaChatBotController as elizaChatBot'
     })
     .state('moodCarousel', {

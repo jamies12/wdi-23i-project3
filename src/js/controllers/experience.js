@@ -14,6 +14,20 @@ function SoundScapeController() {
 InstrumentExperienceController.$inject = [];
 function InstrumentExperienceController() {
 
+  this.cells = [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ];
+
+  function click($index) {
+    console.log('OOOOOO EEEEEEEE', $index);
+  }
+
+  this.click = click;
 }
 
 BreathingExerciseController.$inject = [];

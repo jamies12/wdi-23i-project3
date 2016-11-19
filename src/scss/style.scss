@@ -18,6 +18,19 @@ body {
   height: 80px;
 }
 
+#instrumentBoard {
+  width: 600px;
+  margin: auto;
+  padding: 0;
+}
+#instrumentPad {
+  border: 1px solid;
+  width: 194px;
+  height: 194px;
+  display: inline-block;
+  vertical-align: top;
+}
+
 ul.carousel {
   width: 200px;
   margin-left: 100px;
