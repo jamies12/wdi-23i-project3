@@ -55,11 +55,9 @@ function UserDataController ($auth, User ) {
   userData.labels = userData.moodDataSet.moodTime;
   userData.series = ['Series A'];
   userData.data = userData.moodDataSet.moodValue;
-  userData.colors = [{
-    backgroundColor: '#b383dc'
-    // 'strokeColor': 'rgba(207,100,103,1)',
-    // 'pointColor': 'rgba(220,220,220,1)'
-  }];
+  userData.colors = [
+    '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'
+  ];
   userData.onClick = function (points, evt) {
     console.log(points, evt);
   };

@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
   favouriteAnimal: { type: String },
   hopeToGain: { type: String },
   journals: [ journalSchema ],
+  sessions: [{
+    session: {type: String},
+    timeStamp: {type: Date}
+  }],
   imageChoice: [{ type: String }],
   isFirstTime: {type: Boolean, default: true},
   mood: [{
