@@ -5,31 +5,30 @@
     <title></title>
     <link rel="stylesheet" href="/css/vendor.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="/js/vendor.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>
-
-
-
 
   </head>
   <body ng-controller="MainController as main">
 
-    <article ng-if="main.isLoggedIn()" ng-app="angularSlideables">
-    <h1 class="slideDown" slide-toggle="#derp" > End / settings logo here </h1>
+    <article id="dropDown" ng-if="main.isLoggedIn()" ng-app="angularSlideables">
+    <h1 class="slideDown" slide-toggle="#derp" > <img src="./images/profileSettings.png" id="settingsLogo"> </h1>
       <div id="derp" class="slideable">
         <p>
           <ul>
-            <li class="slideDown" slide-toggle="#derp"><a ui-sref="journals" ui-sref-active="active">Journal Entry</a></li>
-            <li><a ui-sref="userData" ui-sref-active="active">Your Profile</a></li>
+            <li class="slideDown" slide-toggle="#derp"><a ui-sref="journals" ui-sref-active="active">My Journal</a></li>
+            <li><a ui-sref="userData" ui-sref-active="active">Profile</a></li>
             <li><a ui-sref="sessions" ui-sref-active="active">Change session</a></li>
-            <li><a ui-sref="moodCarousel" ui-sref-active="active">End your session</a></li>
+            <li><a ui-sref="moodCarousel" ui-sref-active="active">End session</a></li>
             <li><a ng-click="main.logout()">Logout</a></li>
           </ul>
         </p>
       </div>
     </article>
 
-
+<!--
     <nav>
         <ul>
           <li ng-if="main.isLoggedIn()" ng-controller="UserDataController as userData">Current User is {{userData.user.username}}</li>
@@ -48,7 +47,7 @@
           <li ng-if="main.isLoggedIn()"><a ui-sref="journals" ui-sref-active="active">Journals Data</a></li>
 
         </ul>
-      </nav>
+      </nav> -->
 
 
       <main ui-view></main>
