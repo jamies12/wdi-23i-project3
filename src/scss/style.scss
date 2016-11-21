@@ -2,7 +2,7 @@
 @import "mixin";
 
 body {
-  background-color: teal;
+  background-color: white;
 }
 
 .imageChoice {
@@ -21,17 +21,27 @@ body {
   height: 80px;
 }
 
+#instrumentWrapper {
+  border-radius: 12px;
+  background-color: #ffca60;
+  width: 605px;
+  height: 420px;
+  margin: 0 auto;
+}
+
 #instrumentBoard {
   width: 600px;
-  margin: auto;
+  margin: 10 auto;
   padding: 0;
+  text-align: center;
 }
 .instrument-pad {
-  border: 1px solid;
+  background-color: #4e6dbc;
   width: 194px;
   height: 194px;
   display: inline-block;
   vertical-align: top;
+  top: 10px;
 }
 
 ul.carousel {
@@ -66,8 +76,7 @@ button {
 }
 
 div.sound-art-holder {
-  // max-width: 100%;
-  // min-width: 20%;
+
 }
 
 img.sound-art {

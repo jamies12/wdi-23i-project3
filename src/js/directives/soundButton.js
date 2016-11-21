@@ -11,13 +11,6 @@ function soundButton() {
       const audio = new Audio($scope.sound);
       audio.preload = true;
 
-      // const tile = this;
-
-      // function randomColor(e) {
-      //   e.style.background =  '#' + (Math.random()	* 0xFFFFFF<<0).toString(16);
-      // }
-      // element.on('mouseover', randomColor());
-
       element.on('click', () => {
         audio.play();
         if (audio.paused) {

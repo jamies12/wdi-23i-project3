@@ -9,7 +9,7 @@ angular.module('moodApp')
 SoundScapeController.$inject = [];
 function SoundScapeController() {
 
-  
+
 
 }
 
@@ -25,11 +25,15 @@ function InstrumentExperienceController() {
     '/audio/Vibraphone5.mp3'
   ];
 
-  function click($index) {
-    console.log('OOOOOO EEEEEEEE', $index);
-  }
+  this.colors = [
+    '#1e63a8',
+    '#156da8',
+    '#1e63a8',
+    '#156da8',
+    '#1e63a8',
+    '#156da8'
+  ];
 
-  this.click = click;
 }
 
 BreathingExerciseController.$inject = [];
