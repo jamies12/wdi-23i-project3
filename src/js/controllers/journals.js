@@ -43,7 +43,7 @@ function JournalsNewController(Journal, $state, User, $auth) {
 
 
   function createJournal() {
-    journalsNew.newJournal.journalEntry.timeStamp = Date.now();
+    journalsNew.newJournal.journalEntry.timeStamp = moment(Date.now());
     console.log('your entry', journalsNew.newJournal);
     journalsNew.user.journals.push(journalsNew.newJournal);
     User.update(journalsNew.user, () => {

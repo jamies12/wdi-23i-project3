@@ -20,6 +20,8 @@
     "satellizer": "^0.15.5",
     "angular-resource": "^1.5.8",
     "angular-carousel": "^1.0.1",
-    "angular-whimsical-ripple": "^1.0.0"
+    "angular-whimsical-ripple": "^1.0.0",
+    "moment": "^2.16.0",
+    "angular-chart.js": "^1.0.3"
   }
 }

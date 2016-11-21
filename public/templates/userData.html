@@ -1,14 +1,31 @@
 <h1>User Data</h1>
 
+<h2>You</h2>
 <p>{{ userData.user.username }}</p>
+<h2>Your goals</h2>
 <p>{{ userData.user.hopeToGain }}</p>
+<h2>Fears</h2>
 <p>{{ userData.user.worries }}</p>
+<h2>What makes you happy</h2>
 <p>{{ userData.user.happiness }}</p>
+<h2>Interests</h2>
 <p>{{ userData.user.interests }}</p>
+<h2>Spirit Animal</h2>
 <p>{{ userData.user.favouriteAnimal }}</p>
-<p>{{ userData.user.mood[0].mood}}</p>
+<h2>Mood Data</h2>
+<ul>
+  <li ng-repeat="moods in userData.user.mood ">
+    <p><em>Mood:</em>  {{ moods.mood }} <em>When:</em> {{ moods.timeStamp }} </p>
+    <!-- <p>{{ userData.user.mood[0].value}}</p> -->
+  </li>
+</ul>
+<!-- <p>{{ userData.user.mood[0].mood}}</p>
 <p>{{ userData.user.mood[0].value}}</p>
-<p>{{ userData.user.mood[0].timeStamp}}</p>
+<p>{{ userData.user.mood[0].timeStamp}}</p> -->
 <!-- <p>{{ userData.user }}</p> -->
 
 <a ui-sref="userForm" ui-sref-active="active">User Form</a>
+
+<br>
+
+<a ui-sref="userChart" ui-sref-active="active">User Chart</a>

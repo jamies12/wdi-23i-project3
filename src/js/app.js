@@ -1,5 +1,5 @@
 angular
-  .module('moodApp', ['ngResource', 'ui.router', 'satellizer', 'angular-carousel', 'whimsicalRipple', 'angularSlideables'])
+  .module('moodApp', ['ngResource', 'ui.router', 'satellizer', 'angular-carousel', 'whimsicalRipple', 'angularSlideables', 'chart.js'])
   .config(Router)
   .config(Auth);
 
@@ -53,6 +53,11 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('userData', {
       url: '/userData',
       templateUrl: '/templates/userData.html',
+      controller: 'UserDataController as userData'
+    })
+    .state('userChart', {
+      url: '/userChart',
+      templateUrl: '/templates/userChart.html',
       controller: 'UserDataController as userData'
     })
     .state('soundScapeExperience', {
