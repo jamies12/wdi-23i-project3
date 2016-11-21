@@ -1,12 +1,21 @@
-@mixin animationSetting($name, $duration, $iteration) {
-  animation-name: heroImage;
-  animation-duration: 16s;
-  animation-iteration-count: infinite;
+@mixin positioning($position, $top, $right, $bottom, $left) {
+  position: $position;
+    @if $top != 'null' {
+      top: $top;
+    }
+    @if $right != 'null' {
+      right: $right;
+    }
+    @if $bottom != 'null' {
+      bottom: $bottom;
+    }
+    @if $left != 'null' {
+      left: $left;
+    }
 }
 
-@keyframes heroImage {
-    0%    { opacity: 0; transition: all 50ms }
-    5%   { opacity: 1; transition: all 50ms }
-    25%   { opacity: 1; transition: all 50ms }
-    30%  { opacity: 0; transition: all 50ms }
+@mixin animationSetting($name, $duration, $iteration) {
+  animation-name: soundArtImage;
+  animation-duration: 64s;
+  animation-iteration-count: infinite;
 }
