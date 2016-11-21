@@ -44,6 +44,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/journals/journalsEntries.html',
       controller: 'JournalsIndexController as journalsIndex'
     })
+    .state('journalsShow', {
+      url: '/journals/:id',
+      templateUrl: '/templates/journals/journalsShow.html',
+      controller: 'JournalsShowController as journalsShow'
+    })
     .state('journalsCreate', {
       url: '/journals/create',
       templateUrl: '/templates/journals/journalCreate.html',
@@ -73,11 +78,6 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/experiences/breathing',
       templateUrl: '/templates/sessions/breathingExercise.html',
       controller: 'BreathingExerciseController as breathingExercise'
-    })
-    .state('elizaChatBot', {
-      url: '/experiences/elizaChatBot',
-      templateUrl: '/templates/sessions/elizabot.html',
-      controller: 'ElizaChatBotController as elizaChatBot'
     })
     .state('moodCarousel', {
       url: '/templates/moodCarousel',

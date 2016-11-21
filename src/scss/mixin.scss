@@ -14,6 +14,10 @@
     }
 }
 
+@mixin listStyle($listStyle) {
+  list-style: $listStyle;
+}
+
 @mixin animationSetting($name, $duration, $iteration) {
   animation-name: soundArtImage;
   animation-duration: 64s;

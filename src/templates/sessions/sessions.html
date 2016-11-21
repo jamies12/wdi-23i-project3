@@ -1,4 +1,11 @@
 <h1>Select a sesh</h1>
+<nav>
+    <ul>
+      <li ng-if="main.isLoggedIn()"><a ui-sref="searchPictures" ui-sref-active="active">Browse Pictures</a></li>
+      <li ng-if="main.isLoggedIn()"><a ui-sref="searchVideos" ui-sref-active="active">Browse Videos</a></li>
+    </ul>
+  </nav>
+
 
 <div id="wrapper">
 	<div id="columns">

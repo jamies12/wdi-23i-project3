@@ -38964,7 +38964,7 @@ makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
       rippleKeyframes = [
         '@keyframes ripple {',
           'to {',
-            'transform: scale(3);',
+            'transform: scale(2);',
             'opacity: 0;',
           '}',
         '}'
@@ -38973,7 +38973,7 @@ makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
       rippleWebkitKeyframes = [
         '@-webkit-keyframes ripple {',
           'to {',
-            '-webkit-transform: scale(3);',
+            '-webkit-transform: scale(2);',
             'opacity: 0;',
           '}',
         '}'
