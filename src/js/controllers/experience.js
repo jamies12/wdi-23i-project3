@@ -9,6 +9,8 @@ angular.module('moodApp')
 SoundScapeController.$inject = [];
 function SoundScapeController() {
 
+  
+
 }
 
 InstrumentExperienceController.$inject = [];
