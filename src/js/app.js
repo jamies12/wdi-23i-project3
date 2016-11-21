@@ -69,6 +69,16 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/sessions/soundScapeExperience.html',
       controller: 'SoundScapeController as soundScape'
     })
+    .state('soundScapeExperience2', {
+      url: '/experiences/soundscape2',
+      templateUrl: '/templates/sessions/soundScapeExperience2.html',
+      controller: 'SoundScapeController as soundScape'
+    })
+    .state('soundScapeExperience3', {
+      url: '/experiences/soundscape3',
+      templateUrl: '/templates/sessions/soundScapeExperience3.html',
+      controller: 'SoundScapeController as soundScape'
+    })
     .state('instrumentExperience', {
       url: '/experiences/instrument',
       templateUrl: '/templates/sessions/instrumentExperience.html',
