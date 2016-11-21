@@ -38948,8 +38948,8 @@ makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
         rippleWebkitKeyframes;
 
       rippleCSS = [
-        '-webkit-animation: ripple 2100ms ease-out;',
-        'animation: ripple 2100ms ease-out;',
+        '-webkit-animation: ripple 800ms ease-out;',
+        'animation: ripple 800ms ease-out;',
         'background-color: rgba(0, 0, 0, 0.16);',
         'border-radius: 100%;',
         'height: 10px;',
@@ -38964,7 +38964,7 @@ makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
       rippleKeyframes = [
         '@keyframes ripple {',
           'to {',
-            'transform: scale(4);',
+            'transform: scale(2);',
             'opacity: 0;',
           '}',
         '}'
@@ -38973,7 +38973,7 @@ makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
       rippleWebkitKeyframes = [
         '@-webkit-keyframes ripple {',
           'to {',
-            '-webkit-transform: scale(4);',
+            '-webkit-transform: scale(2);',
             'opacity: 0;',
           '}',
         '}'
