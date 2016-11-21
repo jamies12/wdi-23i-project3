@@ -1,0 +1,12 @@
+@mixin animationSetting($name, $duration, $iteration) {
+  animation-name: heroImage;
+  animation-duration: 16s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes heroImage {
+    0%    { opacity: 0; transition: all 50ms }
+    5%   { opacity: 1; transition: all 50ms }
+    25%   { opacity: 1; transition: all 50ms }
+    30%  { opacity: 0; transition: all 50ms }
+}
