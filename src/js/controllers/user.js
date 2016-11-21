@@ -26,9 +26,89 @@ function UserFormController($auth, User, $state) {
 UserDataController.$inject = ['$auth', 'User' ];
 function UserDataController ($auth, User ) {
   const userData = this;
+  userData.moodDataSet = {
+    moodValue: [],
+    moodTime: []
+  };
 
-  userData.user = User.get({ id: $auth.getPayload()._id });
+  userData.sessionDataSet = {
+    sessionName: [],
+    sessionTime: []
+  };
 
+  User.get({ id: $auth.getPayload()._id }, (user) => {
+    userData.user = user;
+    console.log('user', userData.user);
+    for (let i = 0; i < userData.user.mood.length; i++) {
+      userData.moodDataSet.moodValue.push(userData.user.mood[i].value);
+    }
+    for (let i = 0; i < userData.user.mood.length; i++) {
+      userData.moodDataSet.moodTime.push(userData.user.mood[i].timeStamp);
+    }
+
+    console.log('mood data', userData.moodDataSet);
+    console.log('user', userData.user);
+    for (let i = 0; i < userData.user.sessions.length; i++) {
+      userData.sessionDataSet.sessionName.push(userData.user.sessions[i].session);
+    }
+    for (let i = 0; i < userData.user.sessions.length; i++) {
+      userData.sessionDataSet.sessionTime.push(userData.user.sessions[i].timeStamp);
+    }
+    console.log('session data: ', userData.sessionDataSet);
+  });
+  userData.labels = userData.moodDataSet.moodTime;
+  userData.series = ['Series A'];
+  userData.data = userData.moodDataSet.moodValue;
+  userData.colors = [
+    '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'
+  ];
+  userData.onClick = function (points, evt) {
+    console.log(points, evt);
+  };
+  userData.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+  userData.options = {
+    scales: {
+      yAxes: [
+        {
+          id: 'y-axis-1',
+          type: 'linear',
+          display: true,
+          position: 'left',
+          color: 'black'
+        },
+        {
+          id: 'y-axis-2',
+          type: 'linear',
+          display: true,
+          position: 'right',
+          color: 'black'
+        }
+      ]
+    },
+    defaultFontColor: '#000'
+  };
+
+  function saveSessionData(session) {
+    console.log(userData.user);
+
+    userData.sessionData = {};
+
+    userData.sessionData.session =  session;
+    userData.sessionData.timeStamp = Date.now();
+    console.log(userData.sessionData);
+
+    userData.user.sessions.push(userData.sessionData);
+
+    const updateResult = User.update({id: $auth.getPayload()._id}, userData.user);
+    console.log('updateResult:', updateResult);
+
+
+
+
+
+  }
+
+  userData.saveSessionData = saveSessionData;
 }
 
 MoodCarouselController.$inject = ['$auth', 'User', '$state'];

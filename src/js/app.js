@@ -54,6 +54,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/userData.html',
       controller: 'UserDataController as userData'
     })
+    .state('userChart', {
+      url: '/userChart',
+      templateUrl: '/templates/userChart.html',
+      controller: 'UserDataController as userData'
+    })
     .state('soundScapeExperience', {
       url: '/experiences/soundscape',
       templateUrl: '/templates/sessions/soundScapeExperience.html',
@@ -90,8 +95,8 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('sessions', {
       url: '/sessions',
-      templateUrl: '/templates/sessions/sessions.html'
-      // controller: 'sessionsController as sessions'
+      templateUrl: '/templates/sessions/sessions.html',
+      controller: 'UserDataController as userData'
     });
 
   $urlRouterProvider.otherwise('/');
