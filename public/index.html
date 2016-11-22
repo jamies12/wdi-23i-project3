@@ -62,9 +62,14 @@
     <h1 class="slideDown" slide-toggle="#derp" > <img src="./images/profileSettings.png" id="settingsLogo"> </h1>
       <div id="derp" class="slideable">
         <p>
-          <ul style="list-style-type:none">cch
+          <ul>
+            <li slide-toggle="#derp"><a ui-sref="journals" ui-sref-active="active">Journal Entry</a></li>
+            <li><a ui-sref="userData" ui-sref-active="active">Your Profile</a></li>
+
+          <ul style="list-style-type:none">
             <li class="slideDown" slide-toggle="#derp"><a ui-sref="journals" ui-sref-active="active">My Journal</a></li>
             <li><a ui-sref="userData" ui-sref-active="active">Profile</a></li>
+
             <li><a ui-sref="sessions" ui-sref-active="active">Change session</a></li>
             <li><a ui-sref="moodCarousel" ui-sref-active="active">End session</a></li>
             <li><a ng-click="main.logout()">Logout</a></li>

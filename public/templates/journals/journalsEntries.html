@@ -1,12 +1,19 @@
 <h1 class="j-header">View your Journals</h1>
 
-<ul>
-  <li class="button" style="list-style-type:none" ng-if="main.isLoggedIn()"><a ui-sref="journalsCreate" ui-sref-active="active">Add a journal entry</a></li>
+
+      <a ui-sref="journalsShow({id: journals._id })">
+
+<ul style="list-style-type:none">
+  <li ng-if="main.isLoggedIn()"><a ui-sref="journalsCreate" ui-sref-active="active">Add a journal entry</a></li>
 </ul>
 
 <section>
-  <ul>
-    <li style="list-style-type:none" ng-repeat="journals in journalsIndex.user.journals">
+  <ul style="list-style-type:none">
+    <li ng-repeat="journals in journalsIndex.user.journals">
+      <a ui-sref="journalsShow">
+
+        <h2>{{ journals.title }}</h2>
+      </a>
 
         <h2 class="button j-button">{{ journals.title }}<br>{{journals.journalEntry.timeStamp | date: 'd MMM yyyy'}}<br><a ui-sref="journalsShow({id: journals._id })">read entry</a></h2>
 

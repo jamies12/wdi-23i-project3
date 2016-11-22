@@ -380,10 +380,6 @@ img.sound-art {
 }
 
 
-// body {
-// 	background: url(http://subtlepatterns.com/patterns/scribble_light.png) ;
-// }
-
 #wrapper {
 	max-width: 100%;
 	margin: 50px auto;
@@ -458,9 +454,22 @@ img.sound-art {
 // 	}
 // }
 
+@media (min-width: 800px) {
+	#columns {
+		-webkit-column-count: 5;
+		-moz-column-count: 5;
+		column-count: 5;
+	}
+
+
 .savedData {
   color: $brand;
 }
+
+ .line {
+   margin: 1%;
+   height: 60%;
+ }
 
 //////////////////////////////////////////// ELIZA START
 
@@ -519,6 +528,7 @@ form input {
 
 #resetButton {
   margin-right: 20px;
+  }
 }
 
 

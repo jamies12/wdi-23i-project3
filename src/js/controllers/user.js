@@ -4,6 +4,7 @@ angular.module('moodApp')
  .controller('MoodCarouselController', MoodCarouselController)
  .controller('ImageSelectController', ImageSelectController);
 
+
 UserFormController.$inject = ['$auth', 'User', '$state'];
 function UserFormController($auth, User, $state) {
   const userForm = this;
@@ -36,17 +37,23 @@ function UserDataController ($auth, User ) {
     sessionTime: []
   };
 
+
   User.get({ id: $auth.getPayload()._id }, (user) => {
     userData.user = user;
+    // let day = moment(userData.user.mood[0].timeStamp);
+    // console.log('day test', day.month());
+
+
     console.log('user', userData.user);
+
     for (let i = 0; i < userData.user.mood.length; i++) {
       userData.moodDataSet.moodValue.push(userData.user.mood[i].value);
     }
     for (let i = 0; i < userData.user.mood.length; i++) {
       userData.moodDataSet.moodTime.push(userData.user.mood[i].timeStamp);
     }
-
     console.log('mood data', userData.moodDataSet);
+
     console.log('user', userData.user);
     for (let i = 0; i < userData.user.sessions.length; i++) {
       userData.sessionDataSet.sessionName.push(userData.user.sessions[i].session);
@@ -56,6 +63,7 @@ function UserDataController ($auth, User ) {
     }
     console.log('session data: ', userData.sessionDataSet);
   });
+
   userData.labels = userData.moodDataSet.moodTime;
   userData.series = ['Series A'];
   userData.data = userData.moodDataSet.moodValue;
@@ -88,6 +96,7 @@ function UserDataController ($auth, User ) {
     defaultFontColor: '#000'
   };
 
+
   function saveSessionData(session) {
     console.log(userData.user);
 
@@ -101,9 +110,6 @@ function UserDataController ($auth, User ) {
 
     const updateResult = User.update({id: $auth.getPayload()._id}, userData.user);
     console.log('updateResult:', updateResult);
-
-
-
 
 
   }
@@ -125,7 +131,7 @@ function MoodCarouselController($auth, User, $state) {
     moodCarousel.user.newMood = {};
     moodCarousel.user.newMood.mood = mood;
     moodCarousel.user.newMood.value = moodValue;
-    moodCarousel.user.newMood.timeStamp = Date.now();
+    moodCarousel.user.newMood.timeStamp = moment(Date.now());
     console.log(moodCarousel.user);
 
     moodCarousel.user.mood.push(moodCarousel.user.newMood);
@@ -144,8 +150,6 @@ function MoodCarouselController($auth, User, $state) {
    // }, () => {
    //   console.log('moodCarousel.user.$update: error(?): arguments:', arguments);
    // });
-
-
   }
   moodCarousel.moodSelect = moodSelect;
 }
@@ -249,7 +253,6 @@ angular.module('angularSlideables', [])
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
-      console.log(element);
       var target = document.querySelector(attrs.slideToggle);
       attrs.expanded = false;
       element.bind('click', function() {

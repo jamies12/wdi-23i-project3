@@ -1,3 +1,4 @@
+
 <h1 class="button dataHeader">User Data</h1>
 Your name:<br>
 <p class="savedData">{{ userData.user.username }}</p>
@@ -15,6 +16,7 @@ Current saved mood:<br>
 <p class="savedData">{{ userData.user.mood[0].mood}}</p>
 <!-- <p>{{ userData.user.mood[0].value}}</p> -->
 <p class="savedData">{{ userData.user.mood[0].timeStamp | date: 'd MMM yyyy'}}</p>
+
 <!-- <p>{{ userData.user }}</p> -->
 
 <h3 class="button j-button"><a ui-sref="userForm" ui-sref-active="active" id="userEdit" class="userDataButtons">Edit</a></h3>
