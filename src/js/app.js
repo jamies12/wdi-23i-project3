@@ -7,7 +7,7 @@ Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('login', {
-      url: '/login',
+      url: '/',
       templateUrl: '/templates/login.html',
       controller: 'LoginController as login'
     })

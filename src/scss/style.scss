@@ -1,13 +1,20 @@
 
 @import "mixin";
 
+$brand: #6f9bca;
+
 body {
   background-color: white;
   font-family: 'Pontano Sans', sans-serif;
   text-align: center;
   a {
     text-decoration: none;
+    color: #000000;
   }
+}
+
+ul {
+  padding: 0;
 }
 
 main {
@@ -32,7 +39,69 @@ main {
     }
 }
 
+header {
+  .logo {
+    font-family: 'Quicksand', sans-serif;
+    color: $brand;
+    font-weight: 400;
+    margin: 20px 0;
+  }
+  ul {
+    height: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    background-color: $brand;
+    &.visible {
+      height: 165px;
+      margin-bottom: 20px;
+    }
+    li {
+      font-family: 'Quicksand', sans-serif;
+      margin-bottom: 5px;
+      font-size: 18px;
+      &:first-of-type {
+        margin-top: 15px;
+      }
+      &:last-of-type {
+        margin-bottom: 15px;
+      }
+      a {
+        color: #FFFFFF;
+      }
+    }
+  }
+}
 
+.button {
+  background-color: rgba(82,111,187,0.5);
+  font-family: 'Quicksand', sans-serif;
+  padding: 10px 0;
+  border-radius: 2px;
+  font-size: 14px;
+  a {
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+}
+
+nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      width: calc(50% - 1px);
+      float: left;
+      @extend .button;
+      &:first-of-type {
+        margin-right: 2px;
+      }
+    }
+  }
+}
 
 #settingsLogo {
   width: 30px;
@@ -236,9 +305,9 @@ img.sound-art {
 
 .pin {
 	display: inline-block;
-	background: #FEFEFE;
+	// background: #FEFEFE;
 	// border: 2px solid #FAFAFA;
-	// box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	box-shadow: 0 0 2px rgba(82,111,187,0.3);
 	margin: 0 2px 15px;
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
@@ -256,7 +325,7 @@ img.sound-art {
 
 .pin img {
 	width: 100%;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid rgba(82,111,187,0.3);
 	padding-bottom: 15px;
 	margin-bottom: 5px;
 }
@@ -299,6 +368,7 @@ form input {
 
 #session ul {
   list-style: none;
+  padding-left: 40px;
 }
 
 #session ul li {
