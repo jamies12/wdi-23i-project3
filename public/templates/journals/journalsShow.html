@@ -1,13 +1,12 @@
 <section>
-  <h1>journal</h1>
+  <h1 class="j-header">journal</h1>
 
-  <a ui-sref="journals" ui-sref-active="active">Back to Journals</a>
+  <h4 class="button"><a ui-sref="journals" ui-sref-active="active">Back to Journals</a></h4>
 
   <ul>
     <li style="list-style-type:none" ng-repeat="journal in journalsShow.user.journals" ng-if= "journal._id == journalsShow.journal.id">
-      <h2>{{journal.title}}</h2>
+      <h2 class="button j-button">{{journal.title}}</h2>
       <p>{{journal.journalEntry.entry}}</p>
-      <!-- <button ng-if="journalsShow.isLoggedIn()" ng-click="journalsShow.delete()">Remove this entry</button> -->
     </li>
   </ul>
 
