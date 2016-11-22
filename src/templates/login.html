@@ -14,7 +14,9 @@
   <!-- <button ng-click="login.authenticate('facebook')">Login with Facebook</button> -->
 </section>
 
-<!-- <form novalidate ng-submit="register.submit()">
+
+<section ng controller="RegisterController as register" ng-if="!register.check">
+<form novalidate ng-submit="register.submit()">
 
   <div class="row">
     <label>Username</label>
@@ -33,4 +35,5 @@
     <input class="u-full-width" type="password" name="passwordConfirmation" placeholder="Password Confirmation" ng-model="register.user.passwordConfirmation">
   </div>
   <button>Register</button>
-</form> -->
+</form>
+</section>

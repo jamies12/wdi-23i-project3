@@ -1,8 +1,37 @@
+
+@import "mixin";
+
 body {
   background-color: white;
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'Pontano Sans', sans-serif;
   text-align: center;
+  a {
+    text-decoration: none;
+  }
 }
+
+main {
+  overflow-x: hidden;
+}
+
+
+main {
+    /* start 'enter' transition */
+    &.ng-enter {
+        /* transition on enter for .5s */
+        transition: 2s;
+
+        /* start with opacity 0 (invisible) */
+        opacity: 0;
+    }
+
+    /* end 'enter' transition */
+    &.ng-enter-active {
+        /* end with opacity 1 (fade in) */
+        opacity: 1;
+    }
+}
+
 
 
 #settingsLogo {
@@ -11,16 +40,39 @@ body {
   float: right;
 }
 
+
+#imageChoice1 {
+margin-top: 50px;
+}
+
 .imageChoice {
   width: 250px;
-  height: 250px;
-  margin-bottom: 50px;
+  height: 240px;
   margin-left: 15%;
+  margin-top: 10px;
   background-color: lightgrey;
+  background-size: 100%;
 }
 
 #dropDown {
   z-index: 9999;
+  position: fixed;
+  width: calc(100% - 20px);
+  top: 10px;
+  right: 10px;
+  h1 {
+    margin: 0;
+  }
+  .slideable {
+    background-color: rgba(255, 255, 255, 0.9);
+    // margin-left: 150px;
+    text-align: right;
+    padding-right: 20px;
+    font-size: 15px;
+    a {
+    text-decoration: none;
+    }
+  }
 }
 
 
@@ -33,15 +85,35 @@ body {
   height: 80px;
 }
 
-#instrumentBoard {
-  width: 600px;
-  margin: auto;
-  padding: 0;
+#journalEntry {
+  width: 70%;
+  height: 250px;
 }
+
+#instrumentBackground {
+  background-color: rgb(75, 201, 229);
+  padding: 25px;
+}
+
+#instrumentBoard {
+  width: 70%;
+  margin: 10 auto;
+  padding: 0;
+  text-align: center;
+  left: 50%;
+  border: 1px;
+  border-color: red;
+
+}
+
 .instrument-pad {
-  border: 1px solid;
-  width: 194px;
-  height: 194px;
+  // position: inherit;
+  background-image: url('/images/trippy-water.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 90px;
+  width: 50%;
+  height: 112px;
   display: inline-block;
   vertical-align: top;
 }
@@ -66,6 +138,7 @@ ul.carousel {
 #finger {
   width: 55px; height: 55px;
   margin-top: 350px;
+  margin-right: 5px;
 }
 
 
@@ -82,6 +155,59 @@ button {
   height: 30px;
   width: 200px;
   border-radius: 5px;
+}
+
+#searchList {
+  @include listStyle(none);
+  list-style: none;
+}
+
+
+div.sound-art-holder {
+}
+
+img.hero {
+    width: 100%;
+
+
+}
+
+img.sound-art {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  @include positioning(absolute, 200, 'null', 'null', 0);
+
+  opacity: 0;
+
+  &.i1 {
+    @include animationSetting(soundArtImage, 80s, infinite);
+    z-index: 1;
+  }
+  &.i2 {
+    @include animationSetting(soundArtImage, 80s, infinite);
+    animation-delay: 16s;
+    z-index: 2;
+  }
+  &.i3 {
+    @include animationSetting(soundArtImage, 80s, infinite);
+    animation-delay: 32s;
+    z-index: 3;
+  }
+  &.i4 {
+    @include animationSetting(soundArtImage, 80s, infinite);
+    animation-delay: 48s;
+    z-index: 4;
+  }
+}
+
+@keyframes soundArtImage {
+  0%    { opacity: 0; transition: all 200ms }
+  5%   { opacity: 1; transition: all 200ms }
+  25%   { opacity: 1; transition: all 200ms }
+  30%  { opacity: 0; transition: all 200ms }
 }
 
 
@@ -108,7 +234,7 @@ button {
 	display: inline-block;
 	background: #FEFEFE;
 	// border: 2px solid #FAFAFA;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	// box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
 	margin: 0 2px 15px;
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
@@ -117,7 +243,7 @@ button {
 	padding-bottom: 5px;
 	// background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
 	opacity: 1;
-
+  // border: 1px solid red;
 	-webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
@@ -132,7 +258,7 @@ button {
 }
 
 .pin p {
-	font: 12px/18px Arial, sans-serif;
+	font: 12px;
 	// color: #333;
 	margin: 0;
 }
@@ -153,7 +279,68 @@ button {
 	}
 
 }
+
  .line {
    margin: 1%;
    height: 60%;
  }
+
+//////////////////////////////////////////// ELIZA START
+
+form input {
+  font-size: 14px;
+  text-align: left;
+}
+
+#session {
+  height: 300px;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+}
+
+#session ul {
+  list-style: none;
+}
+
+#session ul li {
+  margin: 0;
+  list-style: none;
+  text-align: left;
+  padding-right: 40px;
+}
+
+#session ul li span {
+  display: inline-block;
+  width: 60px;
+  font-weight: bold;
+  text-align: left;
+}
+
+#session ul li span.eliza {
+  color: #b383dc;
+  text-align: left;
+}
+
+#session ul li span.you {
+  color: #4e6dbc;
+  text-align: left;
+}
+
+.elizaButtons {
+  border: 1px solid lightgrey;
+  background-color: white;
+  margin-left: 20px;
+}
+
+.elizaBody {
+  background-image: url('https://s-media-cache-ak0.pinimg.com/236x/ee/d5/cb/eed5cb9f88a932f56863a58e1c7b96dc.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#resetButton {
+  margin-right: 20px;
+}
+
+///////////////////////////ELIZA END /////////////////

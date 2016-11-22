@@ -16,11 +16,13 @@ function JournalsIndexController(Journal, User, $auth) {
   // journalsIndex.user.all = Journal.query();
 }
 
-JournalsShowController.$inject = ['Journal', '$state', '$auth'];
-function JournalsShowController(Journal, $state, $auth) {
+JournalsShowController.$inject = ['Journal', '$state', '$auth', 'User'];
+function JournalsShowController(Journal, $state, $auth, User) {
   const journalsShow = this;
 
-  journalsShow.journal = Journal.get($state.params);
+  journalsShow.user = User.get({ id: $auth.getPayload()._id });
+  journalsShow.journal = $state.params;
+  // journalsShow.journalEntry = User.get({ _id: journalsShow.user });
   journalsShow.isLoggedIn = $auth.isAuthenticated;
 
   function remove() {
@@ -30,17 +32,17 @@ function JournalsShowController(Journal, $state, $auth) {
   }
 
   journalsShow.delete = remove;
+
 }
+
 
 JournalsNewController.$inject = ['Journal', '$state', 'User', '$auth'];
 function JournalsNewController(Journal, $state, User, $auth) {
+  console.log('creating a journal... controller here');
   const journalsNew = this;
 
   journalsNew.user = User.get({ id: $auth.getPayload()._id });
   journalsNew.newJournal = {};
-
-
-
 
   function createJournal() {
     journalsNew.newJournal.journalEntry.timeStamp = moment(Date.now());

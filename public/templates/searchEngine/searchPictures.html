@@ -1,12 +1,13 @@
-<li ng-if="main.isLoggedIn()"><a ui-sref="search" ui-sref-active="active">Browse Content</a></li>
+<br>
+<br>
+<li><a ui-sref="sessions" ui-sref-active="active">View Activites</a></li>
 <li ng-if="main.isLoggedIn()"><a ui-sref="searchVideos" ui-sref-active="active">Browse Videos</a></li>
 
 <section>
-  <label>Search: <input ng-model="searchText"></label>
+  <label>Search: <input ng-model="picturesIndex.searchText"></label>
   <ul>
-    <li ng-if="!searchText.dirty" ng-repeat="pictures in picturesIndex.all | filter:searchText">
-      <img id="searchResultPicture" ng-src="{{ pictures.source }}"/>
-
+    <li id="searchList" ng-repeat="picture in picturesIndex.all | filter: picturesIndex.filter">
+      <img ng-if="!searchText.dirty" id="searchResultPicture" ng-src="{{ picture.source }}"/>
     </li>
   </ul>
 </section>

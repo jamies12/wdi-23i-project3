@@ -2,12 +2,57 @@ angular.module('moodApp')
   .controller('SoundScapeController', SoundScapeController)
   .controller('InstrumentExperienceController', InstrumentExperienceController)
   .controller('BreathingExerciseController', BreathingExerciseController)
-  .controller('ElizaChatBotController', ElizaChatBotController)
-  .controller('MoodCarouselController', MoodCarouselController);
+  .controller('MoodCarouselController', MoodCarouselController)
+  .controller('ElizaCtrl', ElizaCtrl);
+
+ElizaCtrl.$inject = ['elizaService', '$timeout', '$scope'];
+function ElizaCtrl(elizaService, $timeout, $scope) {
+  const eliza = this;
+
+  eliza.userInput = null;
+  eliza.response = null;
+
+  eliza.reset = reset;
+  eliza.step = step;
+
+  eliza.lines = [];
+
+  function reset() {
+    elizaService.reset();
+    eliza.lines = [];
+    $timeout(step, 500);
+  }
+
+  function step() {
+
+    if (elizaService.quit) {
+      eliza.userInput = null;
+      reset();
+      return;
+    } else if (eliza.userInput) {
+      const input = eliza.userInput;
+      eliza.lines.push({ voice: 'You', text: input });
+      $timeout(() => {
+        eliza.lines.push({ voice: 'Eliza', text: elizaService.transform(input) });
+        $scope.$apply();
+      }, Math.floor(Math.random() * 1000) + 1000);
+    } else if (eliza.lines.length === 0) {
+      // no input and no saved lines -> output initial
+      eliza.lines.push({ voice: 'Eliza', text: elizaService.getInitial() });
+    }
+
+    eliza.userInput = null;
+  }
+
+  $timeout(step, 500);
+
+}
 
 
 SoundScapeController.$inject = [];
 function SoundScapeController() {
+
+
 
 }
 
@@ -23,11 +68,15 @@ function InstrumentExperienceController() {
     '/audio/Vibraphone5.mp3'
   ];
 
-  function click($index) {
-    console.log('OOOOOO EEEEEEEE', $index);
-  }
+  this.colors = [
+    '#1e63a8',
+    '#156da8',
+    '#1e63a8',
+    '#156da8',
+    '#1e63a8',
+    '#156da8'
+  ];
 
-  this.click = click;
 }
 
 BreathingExerciseController.$inject = [];

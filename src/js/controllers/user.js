@@ -16,7 +16,7 @@ function UserFormController($auth, User, $state) {
     userForm.user.$update(() => {
 
       console.log('post update your data', userForm.user);
-      $state.go('imageSelect');
+      $state.go('moodCarousel');
     });
   }
 
@@ -27,11 +27,16 @@ function UserFormController($auth, User, $state) {
 UserDataController.$inject = ['$auth', 'User' ];
 function UserDataController ($auth, User ) {
   const userData = this;
-
   userData.moodDataSet = {
     moodValue: [],
     moodTime: []
   };
+
+  userData.sessionDataSet = {
+    sessionName: [],
+    sessionTime: []
+  };
+
 
   User.get({ id: $auth.getPayload()._id }, (user) => {
     userData.user = user;
@@ -48,9 +53,16 @@ function UserDataController ($auth, User ) {
       userData.moodDataSet.moodTime.push(userData.user.mood[i].timeStamp);
     }
     console.log('mood data', userData.moodDataSet);
+
+    console.log('user', userData.user);
+    for (let i = 0; i < userData.user.sessions.length; i++) {
+      userData.sessionDataSet.sessionName.push(userData.user.sessions[i].session);
+    }
+    for (let i = 0; i < userData.user.sessions.length; i++) {
+      userData.sessionDataSet.sessionTime.push(userData.user.sessions[i].timeStamp);
+    }
+    console.log('session data: ', userData.sessionDataSet);
   });
-
-
 
   userData.labels = userData.moodDataSet.moodTime;
   userData.series = ['Series A'];
@@ -85,7 +97,24 @@ function UserDataController ($auth, User ) {
   };
 
 
+  function saveSessionData(session) {
+    console.log(userData.user);
 
+    userData.sessionData = {};
+
+    userData.sessionData.session =  session;
+    userData.sessionData.timeStamp = Date.now();
+    console.log(userData.sessionData);
+
+    userData.user.sessions.push(userData.sessionData);
+
+    const updateResult = User.update({id: $auth.getPayload()._id}, userData.user);
+    console.log('updateResult:', updateResult);
+
+
+  }
+
+  userData.saveSessionData = saveSessionData;
 }
 
 MoodCarouselController.$inject = ['$auth', 'User', '$state'];
@@ -131,21 +160,19 @@ function ImageSelectController($auth, User, $state) {
   imageSelect.user = User.get({ id: $auth.getPayload()._id });
 
   imageSelect.images1 = [
-    {title: 'meadow', src: '../images/meadow.jpg'},
-    {title: 'beach', src: '../images/beach.jpg'},
-    {title: 'chocolate', src: '../images/chocolate.jpg'},
-    {title: 'cats', src: '../images/cats.jpg'},
-    {title: 'clouds', src: '../images/clouds.jpg'},
-    {title: 'countryside', src: '../images/countryside.jpg'},
+    {title: 'meadow', src: '../images/forest.png'},
+    {title: 'beach', src: '../images/mountain.png'},
+    {title: 'chocolate', src: '../images/chocolate.png'},
+    {title: 'clouds', src: '../images/clouds.png'},
+    {title: 'countryside', src: '../images/countryside.png'},
     {padding: 'padding'}
   ];
   imageSelect.images2 = [
-    {title: 'mountains', src: '../images/mountains.jpg'},
-    {title: 'forest', src: '../images/forest.jpg'},
-    {title: 'fruit', src: '../images/fruit.jpg'},
-    {title: 'dogs', src: '../images/dogs.jpg'},
-    {title: 'waterfall', src: '../images/waterfall.jpg'},
-    {title: 'city', src: '../images/city.jpg'},
+    {title: 'mountains', src: '../images/beach.png'},
+    {title: 'forest', src: '../images/meadow.png'},
+    {title: 'fruit', src: '../images/fruit.png'},
+    {title: 'waterfall', src: '../images/lake.png'},
+    {title: 'city', src: '../images/city.png'},
     {padding: 'padding'}
   ];
 
@@ -201,7 +228,7 @@ angular.module('angularSlideables', [])
 .directive('slideable', function () {
   return {
     restrict: 'C',
-    compile: function (element, attr) {
+    compile: function (element) {
             // wrap tag
       var contents = element.html();
       element.html('<div class="slideable_content" style="margin:0 !important; padding:0 !important" >' + contents + '</div>');

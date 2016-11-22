@@ -1,5 +1,5 @@
 angular
-  .module('moodApp', ['ngResource', 'ui.router', 'satellizer', 'angular-carousel', 'whimsicalRipple', 'angularSlideables', 'chart.js'])
+  .module('moodApp', ['ngAnimate', 'ngResource', 'ui.router', 'satellizer', 'angular-carousel', 'whimsicalRipple', 'angularSlideables', 'chart.js'])
   .config(Router)
   .config(Auth);
 
@@ -50,6 +50,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/journals/journalCreate.html',
       controller: 'JournalsNewController as journalsNew'
     })
+    .state('journalsShow', {
+      url: '/journals/:id',
+      templateUrl: '/templates/journals/journalsShow.html',
+      controller: 'JournalsShowController as journalsShow'
+    })
     .state('userData', {
       url: '/userData',
       templateUrl: '/templates/userData.html',
@@ -65,6 +70,16 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/sessions/soundScapeExperience.html',
       controller: 'SoundScapeController as soundScape'
     })
+    .state('soundScapeExperience2', {
+      url: '/experiences/soundscape2',
+      templateUrl: '/templates/sessions/soundScapeExperience2.html',
+      controller: 'SoundScapeController as soundScape'
+    })
+    .state('soundScapeExperience3', {
+      url: '/experiences/soundscape3',
+      templateUrl: '/templates/sessions/soundScapeExperience3.html',
+      controller: 'SoundScapeController as soundScape'
+    })
     .state('instrumentExperience', {
       url: '/experiences/instrument',
       templateUrl: '/templates/sessions/instrumentExperience.html',
@@ -75,29 +90,25 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/sessions/breathingExercise.html',
       controller: 'BreathingExerciseController as breathingExercise'
     })
-    .state('elizaChatBot', {
-      url: '/experiences/elizaChatBot',
-      templateUrl: '/templates/sessions/elizabot.html',
-      controller: 'ElizaChatBotController as elizaChatBot'
-    })
     .state('moodCarousel', {
-      url: '/templates/moodCarousel',
+      url: '/moodCarousel',
       templateUrl: '/templates/moodCarousel.html',
       controller: 'MoodCarouselController as moodCarousel'
     })
     .state('imageSelect', {
-      url: '/templates/imageSelect',
+      url: '/imageSelect',
       templateUrl: '/templates/imageSelect.html',
       controller: 'ImageSelectController as imageSelect'
     })
     .state('elizabot', {
-      url: '/templates/sessions/elizabot',
-      templateUrl: '/templates/sessions/elizabot.html'
+      url: '/sessions/elizabot',
+      templateUrl: '/templates/sessions/elizabot.html',
+      controller: 'ElizaCtrl as eliza'
     })
     .state('sessions', {
       url: '/sessions',
-      templateUrl: '/templates/sessions/sessions.html'
-      // controller: 'sessionsController as sessions'
+      templateUrl: '/templates/sessions/sessions.html',
+      controller: 'UserDataController as userData'
     });
 
   $urlRouterProvider.otherwise('/');
