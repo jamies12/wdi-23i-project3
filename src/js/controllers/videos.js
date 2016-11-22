@@ -9,6 +9,13 @@ function VideosIndexController(Videos) {
   console.log(Videos);
 
   videosIndex.all = Videos.query();
+
+  function filter(video) {
+    const regex = new RegExp(videosIndex.searchText, 'i');
+    return videosIndex.searchText && regex.test(video.tag);
+  }
+
+  videosIndex.filter = filter;
 }
 
 VideosShowController.$inject = ['Video', '$state', '$auth'];

@@ -7,10 +7,10 @@
 <section>
   <ul style="list-style-type:none">
     <li ng-repeat="journals in journalsIndex.user.journals">
-      <h2>{{ journals.title }}</h2>
-      <p>{{ journals.journalEntry.entry }}</p>
-      <p>{{ journals.journalEntry.timeStamp }}</p>
-
+      <a ui-sref="journalsShow">
+        <h2>{{ journals.title }}</h2>
+        <p>{{ journals._id}}</p>
+      </a>
     </li>
   </ul>
 </section>

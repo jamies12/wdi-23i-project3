@@ -6,9 +6,15 @@ angular.module('moodApp')
 PicturesIndexController.$inject = ['Pictures'];
 function PicturesIndexController(Pictures) {
   const picturesIndex = this;
-  console.log(Pictures);
 
   picturesIndex.all = Pictures.query();
+
+  function filter(picture) {
+    const regex = new RegExp(picturesIndex.searchText, 'i');
+    return picturesIndex.searchText && regex.test(picture.tag);
+  }
+
+  picturesIndex.filter = filter;
 }
 
 PicturesShowController.$inject = ['Picture', '$state', '$auth'];

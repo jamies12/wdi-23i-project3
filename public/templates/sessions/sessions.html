@@ -1,26 +1,53 @@
-<br>
-<h1>SESSIONS</h1>
+<nav>
+  <ul>
+    <li ng-if="main.isLoggedIn()"><a ui-sref="searchPictures" ui-sref-active="active">Browse Pictures</a></li>
+    <li ng-if="main.isLoggedIn()"><a ui-sref="searchVideos" ui-sref-active="active">Browse Videos</a></li>
+  </ul>
+</nav>
 
 <div id="wrapper">
 	<div id="columns">
 		<div class="pin">
-			<img src="http://i1159.photobucket.com/albums/p624/sarahpenneyuk/elizaSession_zpsenhkhzp2.png" />
+      <a ng-click="userData.saveSessionData('elizabot')" ui-sref="elizabot" >
+			    <img src="http://i1159.photobucket.com/albums/p624/sarahpenneyuk/elizaSession_zpsenhkhzp2.png" />
+      </a>
 			<p>
 				Therapy chat bot
 			</p>
 		</div>
 
 		<div class="pin">
-			<img src="http://i1159.photobucket.com/albums/p624/sarahpenneyuk/waterpadsSession_zpsvucblbu0.png" />
+      <a ng-click="userData.saveSessionData('instrumentExperience')" ui-sref="instrumentExperience" >
+			     <img src="http://i1159.photobucket.com/albums/p624/sarahpenneyuk/waterpadsSession_zpsvucblbu0.png" />
+      </a>
 			<p>
 				Instrumental relaxation
 			</p>
 		</div>
 
 		<div class="pin">
-			<img src="http://i1159.photobucket.com/albums/p624/sarahpenneyuk/soundscape_zpsxg3xd2ie.png" />
+      <a ng-click="userData.saveSessionData('soundScapeExperience')" ui-sref="soundScapeExperience" >
+			    <img src="http://i1159.photobucket.com/albums/p624/sarahpenneyuk/soundscape_zpsxg3xd2ie.png" />
+      </a>
+			<p>
+				Enter the mind forest, and calm your mind to soothing images and music
+			</p>
+		</div>
+		<div class="pin">
+      <a ng-click="userData.saveSessionData('soundScapeExperience2')" ui-sref="soundScapeExperience2" >
+			    <img src="http://i1159.photobucket.com/albums/p624/sarahpenneyuk/soundscape_zpsxg3xd2ie.png" />
+      </a>
+			<p>
+				Take flight, and calm your mind to soothing images and music
+			</p>
+		</div>
+		<div class="pin">
+      <a ng-click="userData.saveSessionData('soundScapeExperience3')" ui-sref="soundScapeExperience3" >
+			    <img src="http://i1159.photobucket.com/albums/p624/sarahpenneyuk/soundscape_zpsxg3xd2ie.png" />
+      </a>
 			<p>
 				Soundscapes
+				Experience the cosmos, and calm your mind to soothing images and music
 			</p>
 		</div>
 

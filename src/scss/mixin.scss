@@ -1,0 +1,25 @@
+@mixin positioning($position, $top, $right, $bottom, $left) {
+  position: $position;
+    @if $top != 'null' {
+      top: $top;
+    }
+    @if $right != 'null' {
+      right: $right;
+    }
+    @if $bottom != 'null' {
+      bottom: $bottom;
+    }
+    @if $left != 'null' {
+      left: $left;
+    }
+}
+
+@mixin listStyle($listStyle) {
+  list-style: $listStyle;
+}
+
+@mixin animationSetting($name, $duration, $iteration) {
+  animation-name: soundArtImage;
+  animation-duration: 64s;
+  animation-iteration-count: infinite;
+}

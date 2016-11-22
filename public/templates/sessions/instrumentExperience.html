@@ -1,6 +1,10 @@
 <h1>Instrument</h1>
 <section>
-  <ul id="instrumentBoard">
-    <li sound-button class="instrument-pad ripple ripple-light" sound="sound" ng-repeat="sound in instrumentExperience.sounds track by $index"></li>
-  </ul>
+  <div id="instrumentWrapper">
+    <ul id="instrumentBoard">
+      <li sound-button class="instrument-pad ripple ripple-light" sound="sound" ng-repeat="sound in instrumentExperience.sounds track by    $index"></li>
+    </ul>
+  </div>
 </section>
+
+<!-- style="background-color: {{instrumentExperience.colors[$index]}}" -->

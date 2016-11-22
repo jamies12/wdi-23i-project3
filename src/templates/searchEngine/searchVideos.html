@@ -1,11 +1,11 @@
-<li ng-if="main.isLoggedIn()"><a ui-sref="search" ui-sref-active="active">Browse Content</a></li>
+<li><a ui-sref="sessions" ui-sref-active="active">View Activites</a></li>
 <li ng-if="main.isLoggedIn()"><a ui-sref="searchPictures" ui-sref-active="active">Browse Pictures</a></li>
 
 <section>
-  <label>Search: <input ng-model="searchText"></label>
-  <ul>
-    <li ng-if="!searchText.dirty" ng-repeat="videos in videosIndex.all | filter:searchText">
-      <a href="{{ videos.source }}">{{ videos.tag }}</a>
+  <label>Search: <input ng-model="videosIndex.searchText"></label>
+  <ul id="searchList">
+    <li  ng-if="!searchText.dirty" ng-repeat="video in videosIndex.all | filter: videosIndex.filter">
+      <a href="{{ video.source }}">{{ video.tag }}</a>
     </li>
   </ul>
 </section>

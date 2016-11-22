@@ -20,6 +20,8 @@ JournalsShowController.$inject = ['Journal', '$state', '$auth'];
 function JournalsShowController(Journal, $state, $auth) {
   const journalsShow = this;
 
+
+  // journalsShow.user = User.get({ id: $auth.getPayload()._id });
   journalsShow.journal = Journal.get($state.params);
   journalsShow.isLoggedIn = $auth.isAuthenticated;
 
@@ -29,7 +31,9 @@ function JournalsShowController(Journal, $state, $auth) {
     });
   }
 
+
   journalsShow.delete = remove;
+
 }
 
 JournalsNewController.$inject = ['Journal', '$state', 'User', '$auth'];
