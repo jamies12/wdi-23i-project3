@@ -3,12 +3,12 @@
 <section ng-if="main.isLoggedIn()" class="journal">
   <form ng-submit="journalsNew.create()">
     <div>
-      <input type="text" name="title" placeholder="Title" ng-model="journalsNew.newJournal.title">
+      <input id="journalTitle" type="text" name="title" placeholder="Title" ng-model="journalsNew.newJournal.title">
     </div>
 
     <div>
       <textarea id="journalEntry" name="journalEntry" type="text" placeholder="Write your thoughts here" ng-model="journalsNew.newJournal.journalEntry.entry"></textarea>
     </div>
-    <button>Post your journal entry</button>
+    <button class="button-post-j">Post your journal entry</button>
   </form>
 </section>

@@ -3,6 +3,7 @@
 
 $brand: #6f9bca;
 
+
 body {
   background-color: white;
   font-family: 'Pontano Sans', sans-serif;
@@ -87,6 +88,10 @@ header {
   }
 }
 
+.j-button {
+  background-color: rgba(82,81,187,0.5);
+}
+
 nav {
   ul {
     list-style: none;
@@ -154,9 +159,37 @@ margin-top: 50px;
   height: 80px;
 }
 
+#journalTitle {
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 19px;
+  margin: 10px;
+}
+
 #journalEntry {
   width: 70%;
   height: 250px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.j-header {
+  color: $brand;
+}
+
+#searchBar {
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.button-post-j {
+  background-color: $brand;
+  color: white;
+  font-size: 10px;
+  padding: 7px;
+  margin: 10px;
+  border: none;
+  border-radius: 2px;
 }
 
 #instrumentBackground {
@@ -426,5 +459,7 @@ form input {
 #resetButton {
   margin-right: 20px;
 }
+
+
 
 ///////////////////////////ELIZA END /////////////////
