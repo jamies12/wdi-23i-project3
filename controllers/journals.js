@@ -1,4 +1,4 @@
-// const Journal = require('../models/user').JournalModel;
+const Journal = require('../models/user').JournalModel;
 //
 // function journalsIndex(req, res) {
 //   Journal.find((err, journals) => {
@@ -14,13 +14,14 @@
 //   });
 // }
 //
-// function journalsShow(req, res) {
-//   Journal.findById(req.params.id, (err, journal) => {
-//     if (err) return res.status(500).json({ error: err});
-//     if(!journal) return res.status(404).json({ error: 'Not Found'});
-//     return res.json(journal);
-//   });
-// }
+function journalsShow(req, res) {
+  console.log(req.params.id);
+  Journal.findById(req.params.id, (err, journal) => {
+    if (err) return res.status(500).json({ error: err});
+    if(!journal) return res.status(404).json({ error: 'Not Found'});
+    return res.json(journal);
+  });
+}
 //
 // function journalsUpdate(req, res) {
 //   Journal.findById(req.params.id, (err, journal) => {
@@ -50,10 +51,10 @@
 //   });
 // }
 //
-// module.exports = {
+module.exports = {
 //   index: journalsIndex,
 //   create: journalsCreate,
-//   show: journalsShow,
+  show: journalsShow
 //   update: journalsUpdate,
 //   delete: journalsDelete
-// };
+};
