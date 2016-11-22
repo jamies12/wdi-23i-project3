@@ -45,15 +45,15 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/journals/journalsEntries.html',
       controller: 'JournalsIndexController as journalsIndex'
     })
-    .state('journalsShow', {
-      url: '/journals/:id',
-      templateUrl: '/templates/journals/journalsShow.html',
-      controller: 'JournalsShowController as journalsShow'
-    })
     .state('journalsCreate', {
       url: '/journals/create',
       templateUrl: '/templates/journals/journalCreate.html',
       controller: 'JournalsNewController as journalsNew'
+    })
+    .state('journalsShow', {
+      url: '/journals/:id',
+      templateUrl: '/templates/journals/journalsShow.html',
+      controller: 'JournalsShowController as journalsShow'
     })
     .state('userData', {
       url: '/userData',

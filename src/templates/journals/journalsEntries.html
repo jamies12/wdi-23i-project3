@@ -1,5 +1,15 @@
 <h1>View your Journals</h1>
 
+<!-- <<<<<<< HEAD -->
+<ul>
+  <li style="list-style-type:none" ng-if="main.isLoggedIn()"><a ui-sref="journalsCreate" ui-sref-active="active">Add a journal entry</a></li>
+</ul>
+
+<section>
+  <ul>
+    <li style="list-style-type:none" ng-repeat="journals in journalsIndex.user.journals">
+      <a ui-sref="journalsShow({id: journals._id })">
+<!-- =======
 <ul style="list-style-type:none">
   <li ng-if="main.isLoggedIn()"><a ui-sref="journalsCreate" ui-sref-active="active">Add a journal entry</a></li>
 </ul>
@@ -8,8 +18,8 @@
   <ul style="list-style-type:none">
     <li ng-repeat="journals in journalsIndex.user.journals">
       <a ui-sref="journalsShow">
+>>>>>>> development -->
         <h2>{{ journals.title }}</h2>
-        <p>{{ journals._id}}</p>
       </a>
     </li>
   </ul>
