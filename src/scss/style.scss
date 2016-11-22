@@ -1,13 +1,21 @@
 
 @import "mixin";
 
+$brand: #6f9bca;
+
+
 body {
   background-color: white;
   font-family: 'Pontano Sans', sans-serif;
   text-align: center;
   a {
     text-decoration: none;
+    color: #000000;
   }
+}
+
+ul {
+  padding: 0;
 }
 
 main {
@@ -31,8 +39,130 @@ main {
         opacity: 1;
     }
 }
+/////////////////////////////////////DROP DOWN HEADER
+
+header {
+  .logo {
+    font-family: 'Quicksand', sans-serif;
+    color: $brand;
+    font-weight: 400;
+    margin: 20px 0;
+  }
+  ul {
+    height: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    background-color: $brand;
+    &.visible {
+      height: 165px;
+      margin-bottom: 20px;
+    }
+    li {
+      font-family: 'Quicksand', sans-serif;
+      margin-bottom: 5px;
+      font-size: 18px;
+      &:first-of-type {
+        margin-top: 15px;
+      }
+      &:last-of-type {
+        margin-bottom: 15px;
+      }
+      a {
+        color: #FFFFFF;
+      }
+    }
+  }
+}
 
 
+
+form {
+  display: inline-block;
+}
+////////////////////////////////////////LOG IN PAGE ///////////////////////////////
+#logInForm {
+  margin-top: 30px;
+}
+#registerForm {
+  input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+.buttonLog {
+  background-color: $brand;
+  color: white;
+  border: none;
+  height: 28px;
+  width: 100px;
+  margin-bottom: 40px;
+  border-radius: 2px;
+}
+
+#userFormButton {
+  margin-top: 30px;
+  border-radius: 2px;
+}
+
+#regButton {
+  margin-top: 10px;
+  border-radius: 2px;
+}
+/////////////////////////////////////////////////////
+
+.formLabel{
+  color: gray;
+  padding-top: 50px;
+}
+
+
+.userDataButtons {
+  color: $brand;
+  border: none;
+  height: 28px;
+  width: 100px;
+  margin-bottom: 40px;
+  border-radius: 2px;
+
+
+}
+
+
+.button {
+  background-color: rgba(82,111,187,0.5);
+  font-family: 'Quicksand', sans-serif;
+  padding: 10px 0;
+  border-radius: 2px;
+  font-size: 14px;
+  border-radius: 2px;
+  a {
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+}
+
+.j-button {
+  background-color: rgba(82,81,187,0.5);
+}
+
+nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      width: calc(50% - 1px);
+      float: left;
+      @extend .button;
+      &:first-of-type {
+        margin-right: 2px;
+      }
+    }
+  }
+}
 
 #settingsLogo {
   width: 30px;
@@ -85,14 +215,45 @@ margin-top: 50px;
   height: 80px;
 }
 
+#journalTitle {
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 19px;
+  margin: 10px;
+}
+
 #journalEntry {
   width: 70%;
   height: 250px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.j-header {
+  color: $brand;
+}
+
+#searchBar {
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.button-post-j {
+  background-color: $brand;
+  color: white;
+  font-size: 10px;
+  padding: 7px;
+  margin: 10px;
+  border: none;
+  border-radius: 2px;
 }
 
 #instrumentBackground {
   background-color: rgb(75, 201, 229);
-  padding: 25px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 200px;
+  box-shadow: 0px 8px 2px #44aadd;
 }
 
 #instrumentBoard {
@@ -100,7 +261,7 @@ margin-top: 50px;
   margin: 10 auto;
   padding: 0;
   text-align: center;
-  left: 50%;
+  left: 20px;
   border: 1px;
   border-color: red;
 
@@ -112,10 +273,23 @@ margin-top: 50px;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 90px;
-  width: 50%;
-  height: 112px;
+  width: 30%;
+  // left: 195px;
+  left: 22%;
+  height: 152px;
   display: inline-block;
   vertical-align: top;
+  box-shadow: 0px 4px 2px #44aaee;
+}
+
+@media (max-width: 400px) {
+  .instrument-pad {
+    border-radius: 90px;
+    width: 50%;
+    // left: 45px;
+    left: 22%;
+    height: 112px;
+  }
 }
 
 ul.carousel {
@@ -139,12 +313,6 @@ ul.carousel {
   width: 55px; height: 55px;
   margin-top: 350px;
   margin-right: 5px;
-}
-
-
-#logInForm {
-  margin-left: 100px;
-  margin-top: 200px;
 }
 
 button {
@@ -212,11 +380,17 @@ img.sound-art {
 
 
 #wrapper {
-	width: 90%;
-	max-width: 1100px;
-	min-width: 730px;
+	max-width: 100%;
 	margin: 50px auto;
 }
+
+
+.dataHeader {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
 
 #columns {
 	-webkit-column-count: 2;
@@ -232,9 +406,9 @@ img.sound-art {
 
 .pin {
 	display: inline-block;
-	background: #FEFEFE;
+	// background: #FEFEFE;
 	// border: 2px solid #FAFAFA;
-	// box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	box-shadow: 0 0 2px rgba(82,111,187,0.3);
 	margin: 0 2px 15px;
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
@@ -252,7 +426,7 @@ img.sound-art {
 
 .pin img {
 	width: 100%;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid rgba(82,111,187,0.3);
 	padding-bottom: 15px;
 	margin-bottom: 5px;
 }
@@ -263,13 +437,21 @@ img.sound-art {
 	margin: 0;
 }
 
-@media (min-width: 200px) {
-	#columns {
-		-webkit-column-count: 4;
-		-moz-column-count: 4;
-		column-count: 4;
-	}
-}
+// @media (min-width: 200px) {
+// 	#columns {
+// 		-webkit-column-count: 4;
+// 		-moz-column-count: 4;
+// 		column-count: 4;
+// 	}
+// }
+//
+// @media (min-width: 800px) {
+// 	#columns {
+// 		-webkit-column-count: 5;
+// 		-moz-column-count: 5;
+// 		column-count: 5;
+// 	}
+// }
 
 @media (min-width: 800px) {
 	#columns {
@@ -278,6 +460,9 @@ img.sound-art {
 		column-count: 5;
 	}
 
+
+.savedData {
+  color: $brand;
 }
 
  .line {
@@ -301,6 +486,7 @@ form input {
 
 #session ul {
   list-style: none;
+  padding-left: 40px;
 }
 
 #session ul li {
@@ -342,5 +528,7 @@ form input {
 #resetButton {
   margin-right: 20px;
 }
+
+
 
 ///////////////////////////ELIZA END /////////////////

@@ -1,13 +1,17 @@
-<h1>View your Journals</h1>
+<h1 class="j-header">View your Journals</h1>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a43a387d36b1be9946d95b14a4b33ab612a92c59
 <ul>
-  <li style="list-style-type:none" ng-if="main.isLoggedIn()"><a ui-sref="journalsCreate" ui-sref-active="active">Add a journal entry</a></li>
+  <li class="button" style="list-style-type:none" ng-if="main.isLoggedIn()"><a ui-sref="journalsCreate" ui-sref-active="active">Add a journal entry</a></li>
 </ul>
 
 <section>
   <ul>
     <li style="list-style-type:none" ng-repeat="journals in journalsIndex.user.journals">
+<<<<<<< HEAD
       <a ui-sref="journalsShow({id: journals._id })">
 
 <ul style="list-style-type:none">
@@ -21,6 +25,11 @@
 
         <h2>{{ journals.title }}</h2>
       </a>
+=======
+
+        <h2 class="button j-button">{{ journals.title }}<br>{{journals.journalEntry.timeStamp | date: 'd MMM yyyy'}}<br><a ui-sref="journalsShow({id: journals._id })">read entry</a></h2>
+
+>>>>>>> a43a387d36b1be9946d95b14a4b33ab612a92c59
     </li>
   </ul>
 </section>

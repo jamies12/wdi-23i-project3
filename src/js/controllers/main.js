@@ -8,6 +8,7 @@ function MainController($auth, $state, $rootScope) {
   const main = this;
   main.isLoggedIn = $auth.isAuthenticated;
   main.message = null;
+  main.menuVisible = false;
   function logout() {
     $auth.logout()
     .then(() => {
@@ -16,6 +17,7 @@ function MainController($auth, $state, $rootScope) {
   }
   const protectedStates = ['moodIndex'];
   function secureState(e, toState) {
+    main.menuVisible = false;
     main.message = null;
     console.log(toState, e);
     if(!$auth.isAuthenticated() && protectedStates.includes(toState.name)) {
@@ -26,4 +28,9 @@ function MainController($auth, $state, $rootScope) {
   }
   $rootScope.$on('$stateChangeStart', secureState);
   main.logout = logout;
+
+  function toggleMenu() {
+    main.menuVisible = main.menuVisible ? false : true;
+  }
+  main.toggleMenu = toggleMenu;
 }
