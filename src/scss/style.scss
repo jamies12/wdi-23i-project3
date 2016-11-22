@@ -3,8 +3,11 @@
 
 body {
   background-color: white;
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'Pontano Sans', sans-serif;
   text-align: center;
+  a {
+    text-decoration: none;
+  }
 }
 
 main {
@@ -44,7 +47,7 @@ margin-top: 50px;
 
 .imageChoice {
   width: 250px;
-  height: 250px;
+  height: 240px;
   margin-left: 15%;
   margin-top: 10px;
   background-color: lightgrey;
@@ -126,6 +129,7 @@ ul.carousel {
 #finger {
   width: 55px; height: 55px;
   margin-top: 350px;
+  margin-right: 5px;
 }
 
 
@@ -274,6 +278,7 @@ img.sound-art {
 
 form input {
   font-size: 14px;
+  text-align: left;
 }
 
 #session {
@@ -290,20 +295,41 @@ form input {
 #session ul li {
   margin: 0;
   list-style: none;
+  text-align: left;
+  padding-right: 40px;
 }
 
 #session ul li span {
   display: inline-block;
   width: 60px;
   font-weight: bold;
+  text-align: left;
 }
 
 #session ul li span.eliza {
-  color: #DF6B69;
+  color: #b383dc;
+  text-align: left;
 }
 
 #session ul li span.you {
-  color: #75FB70;
+  color: #4e6dbc;
+  text-align: left;
+}
+
+.elizaButtons {
+  border: 1px solid lightgrey;
+  background-color: white;
+  margin-left: 20px;
+}
+
+.elizaBody {
+  background-image: url('https://s-media-cache-ak0.pinimg.com/236x/ee/d5/cb/eed5cb9f88a932f56863a58e1c7b96dc.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#resetButton {
+  margin-right: 20px;
 }
 
 ///////////////////////////ELIZA END /////////////////

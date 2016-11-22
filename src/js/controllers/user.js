@@ -15,7 +15,7 @@ function UserFormController($auth, User, $state) {
     userForm.user.$update(() => {
 
       console.log('post update your data', userForm.user);
-      $state.go('imageSelect');
+      $state.go('moodCarousel');
     });
   }
 
@@ -156,18 +156,18 @@ function ImageSelectController($auth, User, $state) {
   imageSelect.user = User.get({ id: $auth.getPayload()._id });
 
   imageSelect.images1 = [
-    {title: 'meadow', src: '../images/meadow.png'},
-    {title: 'beach', src: '../images/beach.png'},
+    {title: 'meadow', src: '../images/forest.png'},
+    {title: 'beach', src: '../images/mountain.png'},
     {title: 'chocolate', src: '../images/chocolate.png'},
     {title: 'clouds', src: '../images/clouds.png'},
     {title: 'countryside', src: '../images/countryside.png'},
     {padding: 'padding'}
   ];
   imageSelect.images2 = [
-    {title: 'mountains', src: '../images/mountain.png'},
-    {title: 'forest', src: '../images/forest.png'},
+    {title: 'mountains', src: '../images/beach.png'},
+    {title: 'forest', src: '../images/meadow.png'},
     {title: 'fruit', src: '../images/fruit.png'},
-    {title: 'waterfall', src: '../images/waterfall.png'},
+    {title: 'waterfall', src: '../images/lake.png'},
     {title: 'city', src: '../images/city.png'},
     {padding: 'padding'}
   ];

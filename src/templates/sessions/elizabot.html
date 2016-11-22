@@ -1,4 +1,4 @@
-<section>
+<section class="elizaBody">
   <div id="session">
     <ul>
       <li ng-repeat="line in eliza.lines">
@@ -7,10 +7,11 @@
     </ul>
   </div>
   <form ng-submit="eliza.step()">
-    <input type="text" class="u-full-width" ng-model="eliza.userInput" autofocus>
+    <input type="text" class="u-full-width" ng-model="eliza.userInput" autofocus><br><br>
 
-    <button>Talk</button>
-    <button type="button" ng-click="eliza.reset()">Reset</button>
+    <button class="elizaButtons">Talk</button>
+    <button type="button" class="elizaButtons" id="resetButton" ng-click="eliza.reset()">Reset</button>
   </form>
   <audio src="/audio/Eliza.mp3" autoplay="true" loop="true" hidden="true"></audio>
+
 </section>
