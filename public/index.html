@@ -5,7 +5,8 @@
     <title></title>
     <link rel="stylesheet" href="/css/vendor.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,700" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="/js/vendor.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>
@@ -45,8 +46,19 @@
                 <a class="dropdown-item" ng-click="main.logout()">Logout</a>
               </div> -->
 
+    <header>
+      <h1 div class="logo" ng-click="main.toggleMenu()">align</h1>
+      <ul ng-class="{ 'visible': main.menuVisible }">
+        <li class="slideDown" slide-toggle="#derp"><a ui-sref="journals" ui-sref-active="active">My Journal</a></li>
+        <li><a ui-sref="userData" ui-sref-active="active">Profile</a></li>
+        <li><a ui-sref="sessions" ui-sref-active="active">Change session</a></li>
+        <li><a ui-sref="moodCarousel" ui-sref-active="active">End session</a></li>
+        <li><a ng-click="main.logout()">Logout</a></li>
+      </ul>
+    </header>
 
-    <article id="dropDown" ng-if="main.isLoggedIn()">
+
+    <!-- <article id="dropDown" ng-if="main.isLoggedIn()">
     <h1 class="slideDown" slide-toggle="#derp" > <img src="./images/profileSettings.png" id="settingsLogo"> </h1>
       <div id="derp" class="slideable">
         <p>
@@ -59,7 +71,7 @@
           </ul>
         </p>
       </div>
-    </article>
+    </article> -->
 
     <!-- <nav>
         <ul>
