@@ -1,5 +1,5 @@
 angular
-  .module('moodApp', ['ngResource', 'ui.router', 'satellizer', 'angular-carousel', 'whimsicalRipple', 'angularSlideables'])
+  .module('moodApp', ['ngAnimate', 'ngResource', 'ui.router', 'satellizer', 'angular-carousel', 'whimsicalRipple', 'angularSlideables'])
   .config(Router)
   .config(Auth);
 
@@ -70,24 +70,20 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/sessions/breathingExercise.html',
       controller: 'BreathingExerciseController as breathingExercise'
     })
-    .state('elizaChatBot', {
-      url: '/experiences/elizaChatBot',
-      templateUrl: '/templates/sessions/elizabot.html',
-      controller: 'ElizaChatBotController as elizaChatBot'
-    })
     .state('moodCarousel', {
-      url: '/templates/moodCarousel',
+      url: '/moodCarousel',
       templateUrl: '/templates/moodCarousel.html',
       controller: 'MoodCarouselController as moodCarousel'
     })
     .state('imageSelect', {
-      url: '/templates/imageSelect',
+      url: '/imageSelect',
       templateUrl: '/templates/imageSelect.html',
       controller: 'ImageSelectController as imageSelect'
     })
     .state('elizabot', {
-      url: '/templates/sessions/elizabot',
-      templateUrl: '/templates/sessions/elizabot.html'
+      url: '/sessions/elizabot',
+      templateUrl: '/templates/sessions/elizabot.html',
+      controller: 'ElizaCtrl as eliza'
     })
     .state('sessions', {
       url: '/sessions',

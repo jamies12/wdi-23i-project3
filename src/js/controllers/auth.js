@@ -9,6 +9,8 @@ function RegisterController($auth, $state) {
   function submit() {
     $auth.signup(register.user)
       .then(() => {
+        register.check = {};
+
         $state.go('login');
       });
   }
@@ -37,7 +39,7 @@ function LoginController($auth, $state, User) {
       });
     });
   }
-  
+
   function authenticate(provider) {
     $auth.authenticate(provider)
     .then((res) => {
