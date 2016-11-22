@@ -22,8 +22,8 @@ router.route('/users/:id')
 //   .get(journalsController.index)
 //   .post(journalsController.create);
 //
-// router.route('/journals/:id')
-//   .get(journalsController.show)
+router.route('/journals/:id')
+  .get(journalsController.show);
 //   .put(journalsController.update)
 //   .delete(journalsController.delete);
 

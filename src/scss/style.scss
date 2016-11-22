@@ -85,28 +85,37 @@ margin-top: 50px;
   height: 80px;
 }
 
-#instrumentWrapper {
-  border-radius: 12px;
-  background-color: #ffca60;
-  width: 600px;
-  height: 410px;
-  margin: 0 auto;
+#journalEntry {
+  width: 70%;
+  height: 250px;
+}
+
+#instrumentBackground {
+  background-color: rgb(75, 201, 229);
+  padding: 25px;
 }
 
 #instrumentBoard {
-  width: 600px;
+  width: 70%;
   margin: 10 auto;
   padding: 0;
   text-align: center;
+  left: 50%;
+  border: 1px;
+  border-color: red;
+
 }
 
 .instrument-pad {
-  background-color: #4e6dbc;
-  width: 194px;
-  height: 194px;
+  // position: inherit;
+  background-image: url('/images/trippy-water.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 90px;
+  width: 50%;
+  height: 112px;
   display: inline-block;
   vertical-align: top;
-  top: 1px;
 }
 
 ul.carousel {
