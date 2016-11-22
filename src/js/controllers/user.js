@@ -156,21 +156,19 @@ function ImageSelectController($auth, User, $state) {
   imageSelect.user = User.get({ id: $auth.getPayload()._id });
 
   imageSelect.images1 = [
-    {title: 'meadow', src: '../images/meadow.jpg'},
-    {title: 'beach', src: '../images/beach.jpg'},
-    {title: 'chocolate', src: '../images/chocolate.jpg'},
-    {title: 'cats', src: '../images/cats.jpg'},
-    {title: 'clouds', src: '../images/clouds.jpg'},
-    {title: 'countryside', src: '../images/countryside.jpg'},
+    {title: 'meadow', src: '../images/meadow.png'},
+    {title: 'beach', src: '../images/beach.png'},
+    {title: 'chocolate', src: '../images/chocolate.png'},
+    {title: 'clouds', src: '../images/clouds.png'},
+    {title: 'countryside', src: '../images/countryside.png'},
     {padding: 'padding'}
   ];
   imageSelect.images2 = [
-    {title: 'mountains', src: '../images/mountains.jpg'},
-    {title: 'forest', src: '../images/forest.jpg'},
-    {title: 'fruit', src: '../images/fruit.jpg'},
-    {title: 'dogs', src: '../images/dogs.jpg'},
-    {title: 'waterfall', src: '../images/waterfall.jpg'},
-    {title: 'city', src: '../images/city.jpg'},
+    {title: 'mountains', src: '../images/mountain.png'},
+    {title: 'forest', src: '../images/forest.png'},
+    {title: 'fruit', src: '../images/fruit.png'},
+    {title: 'waterfall', src: '../images/waterfall.png'},
+    {title: 'city', src: '../images/city.png'},
     {padding: 'padding'}
   ];
 
@@ -226,7 +224,7 @@ angular.module('angularSlideables', [])
 .directive('slideable', function () {
   return {
     restrict: 'C',
-    compile: function (element, attr) {
+    compile: function (element) {
             // wrap tag
       var contents = element.html();
       element.html('<div class="slideable_content" style="margin:0 !important; padding:0 !important" >' + contents + '</div>');

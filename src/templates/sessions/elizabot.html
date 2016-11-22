@@ -1,6 +1,16 @@
 <section>
-  <iframe src="/elizabot" width="100%" height="500">This does not work!</iframe>
-  <audio src="/audio/Eliza.mp3" autoplay="true" loop="true" hidden="true">
+  <div id="session">
+    <ul>
+      <li ng-repeat="line in eliza.lines">
+        <span ng-class="line.voice | lowercase">{{ line.voice }}</span>{{ line.text }}
+      </li>
+    </ul>
+  </div>
+  <form ng-submit="eliza.step()">
+    <input type="text" class="u-full-width" ng-model="eliza.userInput" autofocus>
 
-  </audio>
+    <button>Talk</button>
+    <button type="button" ng-click="eliza.reset()">Reset</button>
+  </form>
+  <audio src="/audio/Eliza.mp3" autoplay="true" loop="true" hidden="true"></audio>
 </section>
