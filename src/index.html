@@ -10,14 +10,47 @@
     <script src="/js/vendor.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>
 
+
   </head>
+
+
   <body ng-controller="MainController as main">
 
-    <article id="dropDown" ng-if="main.isLoggedIn()" ng-app="angularSlideables">
+
+    <!-- <ul class="nav nav-pills">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle0" href="#" role="button" aria-haspopup="true" aria-expanded="false"><h5>Menu</h5></a>
+              <div class="dropdown-menu0"> -->
+                  <!-- <ul class="nav hud-nav">
+                    <li class="nav-item dropdown">
+                      <a class="dropdown-item dropdown-toggle1 help" href="#" role="button" aria-haspopup="true" aria-expanded="false" href="#">Help</a>
+                    </li>
+                  </ul> -->
+
+                  <!-- <ul class="nav hud-nav loggedIn">
+                    <li class="nav-item dropdown">
+                      <a class="dropdown-item dropdown-toggle3 loggedIn" href="#" role="button" aria-haspopup="true" aria-expanded="false" href="#">Dev</a>
+                        <div class="dropdown-menu3">
+                          <a class="dropdown-item devOptions histEventsIndex" href="#">Events</a>
+                          <a class="dropdown-item devOptions createHistEvent" href="#">Create</a>
+                          <a class="dropdown-item devOptions timeJump" id="change-map" href="#">Warp</a>
+                        </div>
+                    </li>
+                  </ul> -->
+                <!-- <a class="dropdown-item" ui-sref="journals">Journal</a>
+                <a class="dropdown-item" ui-sref="userData">Profile</a>
+                <a class="dropdown-item" ui-sref="sessions">Change Session</a>
+                <a class="dropdown-item"  ui-sref="moodCarousel">End Session</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" ng-click="main.logout()">Logout</a>
+              </div> -->
+
+
+    <article id="dropDown" ng-if="main.isLoggedIn()">
     <h1 class="slideDown" slide-toggle="#derp" > <img src="./images/profileSettings.png" id="settingsLogo"> </h1>
       <div id="derp" class="slideable">
         <p>
-          <ul>
+          <ul style="list-style-type:none">cch
             <li class="slideDown" slide-toggle="#derp"><a ui-sref="journals" ui-sref-active="active">My Journal</a></li>
             <li><a ui-sref="userData" ui-sref-active="active">Profile</a></li>
             <li><a ui-sref="sessions" ui-sref-active="active">Change session</a></li>
@@ -27,8 +60,6 @@
         </p>
       </div>
     </article>
-
-
 
     <!-- <nav>
         <ul>
