@@ -57,17 +57,19 @@ Picture.create([{
 }], (err, pictures) => {
   if (err) return console.log(err);
   console.log('Pictures added:', pictures);
-});
-
-Video.create([{
-  tag: 'meditation',
-  source: 'https://www.youtube.com/watch?v=8qMtsir0l9k'
-}, {
-  tag: 'music',
-  source: 'https://www.youtube.com/watch?v=BIRJMESl4U8'
-}], (err, videos) => {
-  if (err) return console.log(err);
-  console.log('Videos added:', videos);
 
   mongoose.connection.close();
 });
+
+// Video.create([{
+//   tag: 'meditation',
+//   source: 'https://www.youtube.com/watch?v=8qMtsir0l9k'
+// }, {
+//   tag: 'music',
+//   source: 'https://www.youtube.com/watch?v=BIRJMESl4U8'
+// }], (err, videos) => {
+//   if (err) return console.log(err);
+//   console.log('Videos added:', videos);
+
+
+// });

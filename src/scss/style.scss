@@ -331,20 +331,11 @@ button {
   list-style: none;
 }
 
-
-div.sound-art-holder {
-}
-
-img.hero {
-    width: 100%;
-
-
-}
-
 img.sound-art {
-  width: 100%;
+  width: 98%;
 
-  margin: 0;
+
+  margin: 3px;
   padding: 0;
 
   @include positioning(absolute, 200, 'null', 'null', 0);
