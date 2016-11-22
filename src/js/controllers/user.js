@@ -116,6 +116,7 @@ function MoodCarouselController($auth, User, $state) {
   const moodCarousel = this;
 
   moodCarousel.user = User.get({ id: $auth.getPayload()._id });
+  console.log(moodCarousel.user);
 
   function moodSelect(mood, moodValue) {
     console.log('clicked: ', mood, moodValue);
