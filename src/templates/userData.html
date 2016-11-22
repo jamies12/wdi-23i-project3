@@ -1,18 +1,24 @@
-<h1>User Data</h1>
-
-<p>{{ userData.user.username }}</p>
-<p>{{ userData.user.hopeToGain }}</p>
-<p>{{ userData.user.worries }}</p>
-<p>{{ userData.user.happiness }}</p>
-<p>{{ userData.user.interests }}</p>
-<p>{{ userData.user.favouriteAnimal }}</p>
-<p>{{ userData.user.mood[0].mood}}</p>
-<p>{{ userData.user.mood[0].value}}</p>
-<p>{{ userData.user.mood[0].timeStamp}}</p>
+<h1 class="button dataHeader">User Data</h1>
+Your name:<br>
+<p class="savedData">{{ userData.user.username }}</p>
+Hopes to gain:<br>
+<p class="savedData">{{ userData.user.hopeToGain }}</p>
+Your worries:<br>
+<p class="savedData">{{ userData.user.worries }}</p>
+What makes you happy:<br>
+<p class="savedData">{{ userData.user.happiness }}</p>
+Interests:<br>
+<p class="savedData">{{ userData.user.interests }}</p>
+Favourite Animal:<br>
+<p class="savedData">{{ userData.user.favouriteAnimal }}</p>
+Current saved mood:<br>
+<p class="savedData">{{ userData.user.mood[0].mood}}</p>
+<!-- <p>{{ userData.user.mood[0].value}}</p> -->
+<p class="savedData">{{ userData.user.mood[0].timeStamp}}</p>
 <!-- <p>{{ userData.user }}</p> -->
 
-<a ui-sref="userForm" ui-sref-active="active">Edit</a>
+<a ui-sref="userForm" ui-sref-active="active" id="userEdit" class="userDataButtons">Edit</a>
 
 <br>
 
-<a ui-sref="userChart" ui-sref-active="active">User Chart</a>
+<a ui-sref="userChart" ui-sref-active="active" class="userDataButtons">User Chart</a>

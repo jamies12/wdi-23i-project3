@@ -38,6 +38,7 @@ main {
         opacity: 1;
     }
 }
+/////////////////////////////////////DROP DOWN HEADER
 
 header {
   .logo {
@@ -75,12 +76,67 @@ header {
   }
 }
 
+
+
+form {
+  display: inline-block;
+}
+////////////////////////////////////////LOG IN PAGE ///////////////////////////////
+#logInForm {
+  margin-top: 30px;
+}
+#registerForm {
+  input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+.buttonLog {
+  background-color: $brand;
+  color: white;
+  border: none;
+  height: 28px;
+  width: 100px;
+  margin-bottom: 40px;
+  border-radius: 2px;
+}
+
+#userFormButton {
+  margin-top: 30px;
+  border-radius: 2px;
+}
+
+#regButton {
+  margin-top: 10px;
+  border-radius: 2px;
+}
+/////////////////////////////////////////////////////
+
+.formLabel{
+  color: gray;
+  padding-top: 50px;
+}
+
+
+.userDataButtons {
+  color: $brand;
+  border: none;
+  height: 28px;
+  width: 100px;
+  margin-bottom: 40px;
+  border-radius: 2px;
+
+
+}
+
+
 .button {
   background-color: rgba(82,111,187,0.5);
   font-family: 'Quicksand', sans-serif;
   padding: 10px 0;
   border-radius: 2px;
   font-size: 14px;
+  border-radius: 2px;
   a {
     color: #FFFFFF;
     cursor: pointer;
@@ -210,12 +266,6 @@ ul.carousel {
   margin-right: 5px;
 }
 
-
-#logInForm {
-  margin-left: 100px;
-  margin-top: 200px;
-}
-
 button {
   border: 1px solid black;
 }
@@ -285,11 +335,17 @@ img.sound-art {
 // }
 
 #wrapper {
-	width: 90%;
-	max-width: 1100px;
-	min-width: 730px;
+	max-width: 100%;
 	margin: 50px auto;
 }
+
+
+.dataHeader {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
 
 #columns {
 	-webkit-column-count: 2;
@@ -336,21 +392,21 @@ img.sound-art {
 	margin: 0;
 }
 
-@media (min-width: 200px) {
-	#columns {
-		-webkit-column-count: 4;
-		-moz-column-count: 4;
-		column-count: 4;
-	}
-}
-
-@media (min-width: 800px) {
-	#columns {
-		-webkit-column-count: 5;
-		-moz-column-count: 5;
-		column-count: 5;
-	}
-}
+// @media (min-width: 200px) {
+// 	#columns {
+// 		-webkit-column-count: 4;
+// 		-moz-column-count: 4;
+// 		column-count: 4;
+// 	}
+// }
+//
+// @media (min-width: 800px) {
+// 	#columns {
+// 		-webkit-column-count: 5;
+// 		-moz-column-count: 5;
+// 		column-count: 5;
+// 	}
+// }
 
 //////////////////////////////////////////// ELIZA START
 
@@ -409,6 +465,10 @@ form input {
 
 #resetButton {
   margin-right: 20px;
+}
+
+.savedData {
+  color: $brand;
 }
 
 ///////////////////////////ELIZA END /////////////////
