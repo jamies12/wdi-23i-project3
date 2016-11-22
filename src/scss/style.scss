@@ -37,24 +37,29 @@ body {
 }
 
 #instrumentWrapper {
+  position: absolute;;
   border-radius: 12px;
   background-color: #ffca60;
-  width: 600px;
+  width: 70%;
   height: 410px;
   margin: 0 auto;
 }
 
 #instrumentBoard {
-  width: 600px;
+  width: 70%;
   margin: 10 auto;
   padding: 0;
   text-align: center;
 }
 
 .instrument-pad {
-  background-color: #4e6dbc;
-  width: 194px;
-  height: 194px;
+  position: inherit;
+  background-image: url('/images/trippy-water.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-color: #4e6dbc;
+  width: 50%;
+  height: 154px;
   display: inline-block;
   vertical-align: top;
   top: 1px;

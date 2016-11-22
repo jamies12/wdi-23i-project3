@@ -38959,7 +38959,7 @@ makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
         'width: 10px;'
       ];
 
-      rippleLightCSS = 'background-color: rgba(25, 25, 215, 0.42);';
+      rippleLightCSS = 'background-color: rgba(75, 201, 229, 0.42);';
 
       rippleKeyframes = [
         '@keyframes ripple {',
