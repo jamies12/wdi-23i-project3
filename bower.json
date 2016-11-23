@@ -21,6 +21,7 @@
     "angular-resource": "^1.5.8",
     "angular-carousel": "^1.0.1",
     "angular-whimsical-ripple": "^1.0.0",
-    "angular-animate": "^1.5.8"
+    "angular-animate": "^1.5.8",
+    "angular-chart.js": "^1.0.3"
   }
 }
