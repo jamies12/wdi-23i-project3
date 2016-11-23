@@ -2,16 +2,15 @@ angular.module('moodApp')
   .controller('RegisterController', RegisterController)
   .controller('LoginController', LoginController);
 
-RegisterController.$inject = ['$auth', '$state'];
-function RegisterController($auth, $state) {
+RegisterController.$inject = ['$auth', '$state', '$window'];
+function RegisterController($auth, $state, $window) {
   const register = this;
-  register.user = {};
+
   function submit() {
     $auth.signup(register.user)
-      .then(() => {
-        register.check = {};
-
-        $state.go('login');
+      .then((res) => {
+        $window.localStorage.setItem('token', res.data.token);
+        $state.go('userForm');
       });
   }
   register.submit = submit;
