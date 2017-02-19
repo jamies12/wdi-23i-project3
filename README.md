@@ -4,7 +4,7 @@ Welcome to
 <br>
 by: Michael Grandison
 
-#Play it Nowwww!!!!!
+#Try it Nowwww!!!!!
 <a href="https://tranquil-plateau-11910.herokuapp.com/#/">On Heroku</a>
 
 
