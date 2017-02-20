@@ -4,6 +4,12 @@ Welcome to
 <br>
 by: Michael Grandison
 
+<img src="http://i.imgur.com/GDXsCKY.png">
+<br>
+<img src="http://i.imgur.com/hhGFL1u.png">
+<br>
+<img src="http://i.imgur.com/CHHcihy.png">
+
 #Try it Nowwww!!!!!
 <a href="https://tranquil-plateau-11910.herokuapp.com/#/">On Heroku</a>
 
@@ -21,6 +27,8 @@ coming soo...
 ##### Made with:
 
 HTML5, CSS3, SCSS, Bootstrap, NPM, Bower, Gulp, MEAN stack, MVC architecture, JWT.
+
+<img src="drawing.jpg" alt="screen cap" style="width: 600px;"/>
 
 
 
